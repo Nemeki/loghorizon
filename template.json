@@ -1,68 +1,114 @@
 {
-  "Actor": {
-    "types": ["character"],
-    "templates": {
-      "base": {
-        "health": {
-          "value": 10,
-          "min": 0,
-          "max": 10
+    "Actor": {
+        "types": ["character"],
+        "templates": {
+            "base": {
+                "health": {
+                    "value": 10,
+                    "min": 0,
+                    "max": 10
+                },
+                "power": {
+                    "value": 5,
+                    "min": 0,
+                    "max": 5
+                }
+            }
         },
-        "power": {
-          "value": 5,
-          "min": 0,
-          "max": 5
+        "character": {
+            "templates": ["base"],
+            "playerName": "",
+            "race": "",
+            "sex": "",
+            "biography": "",
+            "attributes": {
+                "level": {
+                    "value": 1
+                },
+                "str": {
+                    "ability": 0,
+                    "value": 0
+                },
+                "dex": {
+                    "ability": 0,
+                    "value": 0
+                },
+                "pow": {
+                    "ability": 0,
+                    "value": 0
+                },
+                "int": {
+                    "ability": 0,
+                    "value": 0
+                }
+            }
         }
-      }
     },
-    "character": {
-      "templates": ["base"],
-      "biography": "",
-      "attributes": {
-        "level": {
-          "value": 1
+    "Item": {
+        "types": [
+            "item",
+            "weapon",
+            "protection",
+            "bag",
+            "consumable",
+            "skill",
+            "class"
+        ],
+        "templates": {
+            "base": {
+                "description": ""
+            },
+            "general": {
+                "rank": 1,
+                "tagList": "",
+                "price": 0
+            }
+        },
+        "item": {
+            "templates": ["base"],
+            "quantity": 1,
+            "weight": 0
+        },
+        "weapon": {
+            "templates": ["base", "general"],
+            "attack": 0,
+            "magic": 0,
+            "accuracy": 0,
+            "initiative": 0,
+            "range": "close"
+        },
+        "protection": {
+            "templates": ["base", "general"],
+            "pdef": 0,
+            "mdef": 0,
+            "initiative": 0
+        },
+        "bag": {
+            "templates": ["base", "general"],
+            "slots": 0
+        },
+        "consumable": {
+            "templates": ["base", "general"],
+            "timing": "",
+            "target": "",
+            "range": "close",
+            "check": ""
+        },
+        "skill": {
+            "templates": ["base"],
+            "type": "",
+            "tags": "",
+            "maxSR": 1,
+            "timing": "",
+            "check": "",
+            "target": "",
+            "range": "close",
+            "cost": "",
+            "limit": ""
+        },
+        "class": {
+            "templates": ["base"],
+            "archetype": ""
         }
-      },
-      "abilities": {
-        "str": {
-          "value": 10
-        },
-        "dex": {
-          "value": 10
-        },
-        "con": {
-          "value": 10
-        },
-        "int": {
-          "value": 10
-        },
-        "wis": {
-          "value": 10
-        },
-        "cha": {
-          "value": 10
-        }
-      }
     }
-  },
-  "Item": {
-    "types": ["item", "feature", "spell"],
-    "templates": {
-      "base": {
-        "description": ""
-      }
-    },
-    "item": {
-      "templates": ["base"],
-      "quantity": 1,
-      "weight": 0
-    },
-    "feature": {
-      "templates": ["base"]
-    },
-    "spell": {
-      "templates": ["base"],
-      "spellLevel": 1
-    }
-  }
 }

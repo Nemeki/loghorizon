@@ -49,46 +49,27 @@ export class LoghorizonActorSheet extends ActorSheet {
         const actorData = sheetData.actor;
 
         // Initialize containers.
-        const gear = [];
-        const features = [];
-        const spells = {
-            0: [],
-            1: [],
-            2: [],
-            3: [],
-            4: [],
-            5: [],
-            6: [],
-            7: [],
-            8: [],
-            9: [],
-        };
+        const equipment = [];
+        const skills = [];
 
         // Iterate through items, allocating to containers
         // let totalWeight = 0;
         for (let i of sheetData.items) {
             let item = i.data;
             i.img = i.img || DEFAULT_TOKEN;
-            // Append to gear.
+            // Append to equipment.
             if (i.type === "item") {
-                gear.push(i);
+                equipment.push(i);
             }
-            // Append to features.
-            else if (i.type === "feature") {
-                features.push(i);
-            }
-            // Append to spells.
-            else if (i.type === "spell") {
-                if (i.data.spellLevel != undefined) {
-                    spells[i.data.spellLevel].push(i);
-                }
+            // Append to skills.
+            else if (i.type === "skill") {
+                skills.push(i);
             }
         }
 
         // Assign and return
-        actorData.gear = gear;
-        actorData.features = features;
-        actorData.spells = spells;
+        actorData.equipment = equipment;
+        actorData.skills = skills;
     }
 
     /* -------------------------------------------- */
