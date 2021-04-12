@@ -18,27 +18,23 @@
         "character": {
             "templates": ["base"],
             "playerName": "",
-            "race": "",
+            "race": "Human",
             "sex": "",
             "biography": "",
+            "level": {
+                "value": 1
+            },
             "attributes": {
-                "level": {
-                    "value": 1
-                },
                 "str": {
-                    "ability": 0,
                     "value": 0
                 },
                 "dex": {
-                    "ability": 0,
                     "value": 0
                 },
                 "pow": {
-                    "ability": 0,
                     "value": 0
                 },
                 "int": {
-                    "ability": 0,
                     "value": 0
                 }
             }
@@ -46,7 +42,6 @@
     },
     "Item": {
         "types": [
-            "item",
             "weapon",
             "protection",
             "bag",
@@ -63,11 +58,6 @@
                 "tagList": "",
                 "price": 0
             }
-        },
-        "item": {
-            "templates": ["base"],
-            "quantity": 1,
-            "weight": 0
         },
         "weapon": {
             "templates": ["base", "general"],

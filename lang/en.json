@@ -1,1 +1,14 @@
-{}
+{
+    "loghorizon": {
+        "race": {
+            "human": "Human",
+            "elf": "Elf",
+            "dwarf": "Dwarf",
+            "halfalv": "Half-Alv",
+            "werecat": "Werecat",
+            "wolffang": "Wolf Fang",
+            "foxtail": "Fox Tail",
+            "raceofritual": "Race of Ritual"
+        }
+    }
+}

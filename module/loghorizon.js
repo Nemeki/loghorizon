@@ -3,6 +3,7 @@ import { LoghorizonActor } from "./actor/actor.js";
 import { LoghorizonActorSheet } from "./actor/actor-sheet.js";
 import { LoghorizonItem } from "./item/item.js";
 import { LoghorizonItemSheet } from "./item/item-sheet.js";
+import { loghorizon } from "./config.js";
 
 Hooks.once("init", async function () {
     game.loghorizon = {
@@ -10,6 +11,8 @@ Hooks.once("init", async function () {
         LoghorizonItem,
         rollItemMacro,
     };
+
+    CONFIG.loghorizon = loghorizon;
 
     /**
      * Set an initiative formula for the system
