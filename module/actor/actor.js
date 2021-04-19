@@ -33,5 +33,6 @@ export class LoghorizonActor extends Actor {
             // Calculate the modifier using d20 rules.
             attribute.mod = Math.floor(attribute.value / 3);
         }
+        data.skill.athletics = data.attributes.str;
     }
 }

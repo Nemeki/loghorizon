@@ -26,6 +26,7 @@ export class LoghorizonActorSheet extends ActorSheet {
     getData() {
         const data = super.getData();
         data.dtypes = ["String", "Number", "Boolean"];
+        data.config = CONFIG.loghorizon;
         for (let attr of Object.values(data.data.attributes)) {
             attr.isCheckbox = attr.dtype === "Boolean";
         }
