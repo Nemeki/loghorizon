@@ -1,6 +1,7 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
     {{!-- Sheet Header --}}
     <header class="sheet-header">
+        {{!-- La imagen, el nombre y otros valores de acceso rapido --}}
         <img
             class="profile-img"
             src="{{actor.img}}"
@@ -48,23 +49,16 @@
                     </div>
                 </div>
                 <div class="resource flex-group-center">
-                    <label for="data.power.value" class="resource-label"
-                        >Power</label
+                    <label for="data.hate.value" class="resource-label"
+                        >Hate</label
                     >
                     <div
                         class="resource-content flexrow flex-center flex-between"
                     >
                         <input
                             type="text"
-                            name="data.power.value"
-                            value="{{data.power.value}}"
-                            data-dtype="Number"
-                        />
-                        <span> / </span>
-                        <input
-                            type="text"
-                            name="data.power.max"
-                            value="{{data.power.max}}"
+                            name="data.hate.value"
+                            value="{{data.hate.value}}"
                             data-dtype="Number"
                         />
                     </div>
@@ -73,25 +67,26 @@
             {{!-- The grid classes are defined in scss/global/_grid.scss. To
             use, use both the "grid" and "grid-Ncol" class where "N" can be any
             number from 1 to 12 and will create that number of columns. --}}
-            <div class="abilities grid grid-3col">
-                {{#each data.abilities as |ability key|}}
-                <div class="ability flexrow flex-group-center">
+            <div class="attributes grid grid-3col">
+                {{#each data.attributes as |attribute key|}}
+                <div class="attribute flexrow flex-group-center">
                     <label
-                        for="data.abilities.{{key}}.value"
+                        for="data.attributes.{{key}}.value"
                         class="resource-label"
                         >{{key}}</label
                     >
                     <input
                         type="text"
-                        name="data.abilities.{{key}}.value"
-                        value="{{ability.value}}"
+                        name="data.attributes.{{key}}.value"
+                        value="{{attribute.value}}"
                         data-dtype="Number"
                     />
                     <span
-                        class="ability-mod rollable"
-                        data-roll="d20+@abilities.{{key}}.mod"
+                        class="attribute-mod rollable"
+                        data-roll="d20+@attributes.{{key}}.mod"
                         data-label="{{key}}"
-                        >{{numberFormat ability.mod decimals=0 sign=true}}</span
+                        >{{numberFormat attribute.mod decimals=0
+                        sign=true}}</span
                     >
                 </div>
                 {{/each}}

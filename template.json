@@ -8,10 +8,9 @@
                     "min": 0,
                     "max": 10
                 },
-                "power": {
-                    "value": 5,
-                    "min": 0,
-                    "max": 5
+                "hate": {
+                    "value": 0,
+                    "min": 0
                 }
             }
         },
