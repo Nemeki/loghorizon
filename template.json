@@ -3,6 +3,9 @@
         "types": ["character"],
         "templates": {
             "base": {
+                "level": {
+                    "value": 1
+                },
                 "health": {
                     "value": 10,
                     "min": 0,
@@ -20,9 +23,6 @@
             "race": "Human",
             "sex": "",
             "biography": "",
-            "level": {
-                "value": 1
-            },
             "attributes": {
                 "str": {
                     "value": 0
