@@ -24,6 +24,7 @@ export class LoghorizonActor extends Actor {
      */
     _prepareCharacterData(actorData) {
         const data = actorData.data;
+        var high = 0;
 
         // Make modifications to data here. For example:
 
@@ -32,7 +33,26 @@ export class LoghorizonActor extends Actor {
         for (let [key, attribute] of Object.entries(data.attributes)) {
             // Calculate the modifier using d20 rules.
             attribute.mod = Math.floor(attribute.value / 3);
+            if (attribute.mod > high) {
+                high = attribute.mod;
+            }
         }
-        data.skill.athletics = data.attributes.str;
+        data.ability.athletics = data.attributes.str;
+        data.ability.endurance = data.attributes.str;
+        data.ability.disable = data.attributes.dex;
+        data.ability.operate = data.attributes.dex;
+        data.ability.evasion = data.attributes.dex;
+        data.ability.perception = data.attributes.pow;
+        data.ability.negotiation = data.attributes.pow;
+        data.ability.resistance = data.attributes.pow;
+        data.ability.knowledge = data.attributes.int;
+        data.ability.analyze = data.attributes.int;
+
+        data.ability.accuracy = high;
+
+        data.battleStatus.phyDefense = data.attributes.str * 2;
+        data.battleStatus.magicDefense = data.attributes.int * 2;
+        data.battleStatus.initiative =
+            data.attributes.str + data.attributes.int;
     }
 }

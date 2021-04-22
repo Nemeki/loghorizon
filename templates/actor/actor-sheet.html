@@ -27,6 +27,22 @@
                 and it will add a small amount of padding, a border, and will
                 center all of its child elements content and text. --}}
                 <div class="resource flex-group-center">
+                    <label for="data.level.value" class="resource-label"
+                        >Level</label
+                    >
+                    <div
+                        class="resource-content flexrow flex-center flex-between"
+                    >
+                        <input
+                            type="text"
+                            name="data.level.value"
+                            value="{{data.level.value}}"
+                            data-dtype="Number"
+                        />
+                    </div>
+                </div>
+
+                <div class="resource flex-group-center">
                     <label for="data.health.value" class="resource-label"
                         >Health</label
                     >
@@ -63,21 +79,6 @@
                         />
                     </div>
                 </div>
-                <div class="resource flex-group-center">
-                    <label for="data.level.value" class="resource-label"
-                        >Level</label
-                    >
-                    <div
-                        class="resource-content flexrow flex-center flex-between"
-                    >
-                        <input
-                            type="text"
-                            name="data.level.value"
-                            value="{{data.level.value}}"
-                            data-dtype="Number"
-                        />
-                    </div>
-                </div>
             </div>
             {{!-- The grid classes are defined in scss/global/_grid.scss. To
             use, use both the "grid" and "grid-Ncol" class where "N" can be any
@@ -96,13 +97,6 @@
                         value="{{attribute.value}}"
                         data-dtype="Number"
                     />
-                    <span
-                        class="attribute-mod rollable"
-                        data-roll="d6+@attributes.{{key}}.mod"
-                        data-label="{{key}}"
-                        >{{numberFormat attribute.mod decimals=0
-                        sign=true}}</span
-                    >
                 </div>
                 {{/each}}
             </div>

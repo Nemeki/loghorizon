@@ -7,9 +7,9 @@
                     "value": 1
                 },
                 "health": {
-                    "value": 10,
+                    "value": 0,
                     "min": 0,
-                    "max": 10
+                    "max": 0
                 },
                 "hate": {
                     "value": 0,
@@ -36,18 +36,29 @@
                 "int": {
                     "value": 0
                 }
+            },
+            "battleStatus": {
+                "fate": {
+                    "value": 0,
+                    "max": 0
+                },
+                "damage": {
+                    "value": 0
+                },
+                "magic": {
+                    "value": 0
+                },
+                "recovery": {
+                    "value": 0
+                },
+                "speed": {
+                    "value": 2
+                }
             }
         }
     },
     "Item": {
-        "types": [
-            "weapon",
-            "protection",
-            "bag",
-            "consumable",
-            "skill",
-            "class"
-        ],
+        "types": ["item", "skill", "class"],
         "templates": {
             "base": {
                 "description": ""
@@ -58,35 +69,26 @@
                 "price": 0
             }
         },
-        "weapon": {
+        "item": {
             "templates": ["base", "general"],
+            "equip": false,
             "attack": 0,
             "magic": 0,
-            "accuracy": 0,
-            "initiative": 0,
-            "range": "close"
-        },
-        "protection": {
-            "templates": ["base", "general"],
             "pdef": 0,
             "mdef": 0,
-            "initiative": 0
-        },
-        "bag": {
-            "templates": ["base", "general"],
-            "slots": 0
-        },
-        "consumable": {
-            "templates": ["base", "general"],
+            "accuracy": 0,
+            "initiative": 0,
             "timing": "",
             "target": "",
             "range": "close",
-            "check": ""
+            "check": "",
+            "slots": 0
         },
         "skill": {
             "templates": ["base"],
             "type": "",
             "tags": "",
+            "rank": 1,
             "maxSR": 1,
             "timing": "",
             "check": "",
@@ -97,7 +99,25 @@
         },
         "class": {
             "templates": ["base"],
-            "archetype": ""
+            "archetype": "",
+            "increases": {
+                "str": {
+                    "value": 0
+                },
+                "dex": {
+                    "value": 0
+                },
+                "pow": {
+                    "value": 0
+                },
+                "int": {
+                    "value": 0
+                },
+                "hp": {
+                    "base": 0,
+                    "modifier": 0
+                }
+            }
         }
     }
 }
