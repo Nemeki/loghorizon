@@ -80,6 +80,70 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="basestats">Base stats</a>
+        <a class="item" data-tab="items">Items</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        {{!-- Base stats Tab --}}
+        <div class="tab base stats" data-group="primary" data-tab="basestats">
+            <div class="attributes grid grid-3col">
+                <div class="resource flex-group-center">
+                    <label for="data.race" class="resource-label">Race</label>
+                    <input
+                        type="text"
+                        name="data.race"
+                        value="{{data.race}}"
+                        data-dtype="List"
+                    />
+                </div>
+                <div class="resource flex-group-center">
+                    <label for="data.class" class="resource-label">Class</label>
+                    <input
+                        type="text"
+                        name="data.class"
+                        value="{{data.class}}"
+                        data-dtype="Text"
+                    />
+                </div>
+                <div class="resource flex-group-center">
+                    <label for="data.archetype" class="resource-label"
+                        >Archetype</label
+                    >
+                    <input
+                        type="text"
+                        name="data.archetype"
+                        value="{{data.archetype}}"
+                        data-dtype="Text"
+                    />
+                </div>
+                <div class="resource flex-group-center">
+                    <label for="data.sex" class="resource-label">Sex</label>
+                    <input
+                        type="text"
+                        name="data.sex"
+                        value="{{data.sex}}"
+                        data-dtype="Text"
+                    />
+                </div>
+                <div class="resource flex-group-center">
+                    <label for="data.subclass" class="resource-label"
+                        >Subclass</label
+                    >
+                    <input
+                        type="text"
+                        name="data.subclass"
+                        value="{{data.subclass}}"
+                        data-dtype="Text"
+                    />
+                </div>
+            </div>
             {{!-- The grid classes are defined in scss/global/_grid.scss. To
             use, use both the "grid" and "grid-Ncol" class where "N" can be any
             number from 1 to 12 and will create that number of columns. --}}
@@ -100,21 +164,24 @@
                 </div>
                 {{/each}}
             </div>
-        </div>
-    </header>
 
-    {{!-- Sheet Tab Navigation --}}
-    <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">Description</a>
-        <a class="item" data-tab="items">Items</a>
-    </nav>
-
-    {{!-- Sheet Body --}}
-    <section class="sheet-body">
-        {{!-- Biography Tab --}}
-        <div class="tab biography" data-group="primary" data-tab="description">
-            {{editor content=data.biography target="data.biography" button=true
-            owner=owner editable=editable}}
+            <div class="attributes grid grid-4col">
+                {{#each data.abilities as |ability key|}}
+                <div class="ability flexrow flex-group-center">
+                    <label
+                        for="data.abilities.{{key}}.value"
+                        class="resource-label"
+                        >{{key}}</label
+                    >
+                    <input
+                        type="text"
+                        name="data.abilities.{{key}}.value"
+                        value="{{ability.value}}"
+                        data-dtype="Number"
+                    />
+                </div>
+                {{/each}}
+            </div>
         </div>
 
         {{!-- Owned Items Tab --}}

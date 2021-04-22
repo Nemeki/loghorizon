@@ -37,22 +37,22 @@ export class LoghorizonActor extends Actor {
                 high = attribute.mod;
             }
         }
-        data.ability.athletics = data.attributes.str;
-        data.ability.endurance = data.attributes.str;
-        data.ability.disable = data.attributes.dex;
-        data.ability.operate = data.attributes.dex;
-        data.ability.evasion = data.attributes.dex;
-        data.ability.perception = data.attributes.pow;
-        data.ability.negotiation = data.attributes.pow;
-        data.ability.resistance = data.attributes.pow;
-        data.ability.knowledge = data.attributes.int;
-        data.ability.analyze = data.attributes.int;
+        data.abilities.athletics.value = data.attributes.str.mod;
+        data.abilities.endurance.value = data.attributes.str.mod;
+        data.abilities.disable.value = data.attributes.dex.mod;
+        data.abilities.operate.value = data.attributes.dex.mod;
+        data.abilities.evasion.value = data.attributes.dex.mod;
+        data.abilities.perception.value = data.attributes.pow.mod;
+        data.abilities.negotiation.value = data.attributes.pow.mod;
+        data.abilities.resistance.value = data.attributes.pow.mod;
+        data.abilities.knowledge.value = data.attributes.int.mod;
+        data.abilities.analyze.value = data.attributes.int.mod;
 
-        data.ability.accuracy = high;
+        data.abilities.accuracy.value = high;
 
-        data.battleStatus.phyDefense = data.attributes.str * 2;
-        data.battleStatus.magicDefense = data.attributes.int * 2;
-        data.battleStatus.initiative =
-            data.attributes.str + data.attributes.int;
+        data.battleStatus.phyDefense.value = data.attributes.str.mod * 2;
+        data.battleStatus.magicDefense.value = data.attributes.int.mod * 2;
+        data.battleStatus.initiative.value =
+            data.attributes.str.mod + data.attributes.int.mod;
     }
 }
