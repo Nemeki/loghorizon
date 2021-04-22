@@ -86,6 +86,7 @@
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="basestats">Base stats</a>
+        <a class="item" data-tab="battle">Battle status</a>
         <a class="item" data-tab="items">Items</a>
     </nav>
 
@@ -93,8 +94,8 @@
     <section class="sheet-body">
         {{!-- Base stats Tab --}}
         <div class="tab base stats" data-group="primary" data-tab="basestats">
-            <div class="attributes grid grid-3col">
-                <div class="resource flex-group-center">
+            <div class="basic grid grid-3col">
+                <div class="resource flexrow flex-group-center">
                     <label for="data.race" class="resource-label">Race</label>
                     <input
                         type="text"
@@ -103,7 +104,7 @@
                         data-dtype="List"
                     />
                 </div>
-                <div class="resource flex-group-center">
+                <div class="resource flexrow flex-group-center">
                     <label for="data.class" class="resource-label">Class</label>
                     <input
                         type="text"
@@ -112,7 +113,7 @@
                         data-dtype="Text"
                     />
                 </div>
-                <div class="resource flex-group-center">
+                <div class="resource flexrow flex-group-center">
                     <label for="data.archetype" class="resource-label"
                         >Archetype</label
                     >
@@ -123,7 +124,7 @@
                         data-dtype="Text"
                     />
                 </div>
-                <div class="resource flex-group-center">
+                <div class="resource flexrow flex-group-center">
                     <label for="data.sex" class="resource-label">Sex</label>
                     <input
                         type="text"
@@ -132,7 +133,7 @@
                         data-dtype="Text"
                     />
                 </div>
-                <div class="resource flex-group-center">
+                <div class="resource flexrow flex-group-center">
                     <label for="data.subclass" class="resource-label"
                         >Subclass</label
                     >
@@ -162,21 +163,39 @@
                         data-dtype="Number"
                     />
                 </div>
-                {{/each}}
-            </div>
-
-            <div class="attributes grid grid-4col">
-                {{#each data.abilities as |ability key|}}
-                <div class="ability flexrow flex-group-center">
+                {{/each}} {{#each data.abilities as |ability key|}}
+                <div class="ability flexcol flex-group-center">
                     <label
                         for="data.abilities.{{key}}.value"
                         class="resource-label"
                         >{{key}}</label
                     >
+                    <span
+                        class="ability rollable"
+                        data-roll="d6+@abilities.{{key}}.value"
+                        data-label="{{key}}"
+                        >{{numberFormat ability.value decimals=0
+                        sign=false}}</span
+                    >
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        {{!-- Battle Tab --}}
+        <div class="battle status" data-group="primary" data-tab="battle">
+            <div class="resource grid grid-2col">
+                {{#each data.battleStatus as |status key|}}
+                <div class="status flexcol flex-group-center">
+                    <label
+                        for="data.battleStatus.{{key}}.value"
+                        class="resource-label"
+                        >{{key}}</label
+                    >
                     <input
                         type="text"
-                        name="data.abilities.{{key}}.value"
-                        value="{{ability.value}}"
+                        name="data.battleStatus.{{key}}.value"
+                        value="{{status.value}}"
                         data-dtype="Number"
                     />
                 </div>
