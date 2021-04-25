@@ -68,9 +68,6 @@
                     <label for="data.hate.value" class="resource-label"
                         >Hate</label
                     >
-                    <div
-                        class="resource-content flexrow flex-center flex-between"
-                    >
                         <input
                             type="text"
                             name="data.hate.value"
@@ -88,6 +85,7 @@
         <a class="item" data-tab="basestats">Base stats</a>
         <a class="item" data-tab="battle">Battle status</a>
         <a class="item" data-tab="items">Items</a>
+        <a class="item" data-tab="skills">Skills</a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -183,7 +181,7 @@
         </div>
 
         {{!-- Battle Tab --}}
-        <div class="battle status" data-group="primary" data-tab="battle">
+        <div class="tab battle status" data-group="primary" data-tab="battle">
             <div class="resource grid grid-2col">
                 {{#each data.battleStatus as |status key|}}
                 <div class="status flexcol flex-group-center">
@@ -218,7 +216,7 @@
                         >
                     </div>
                 </li>
-                {{#each actor.gear as |item id|}}
+                {{#each actor.equipment as |item id|}}
                 <li class="item flexrow" data-item-id="{{item._id}}">
                     <div class="item-image">
                         <img

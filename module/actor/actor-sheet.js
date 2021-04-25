@@ -65,6 +65,8 @@ export class LoghorizonActorSheet extends ActorSheet {
             // Append to skills.
             else if (i.type === "skill") {
                 skills.push(i);
+            } else if (i.type === "class") {
+                actorData.class = i;
             }
         }
 

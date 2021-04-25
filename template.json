@@ -41,31 +41,31 @@
                 "athletics": {
                     "value": 0
                 },
-                "endurance": {
-                    "value": 0
-                },
                 "disable": {
-                    "value": 0
-                },
-                "operate": {
-                    "value": 0
-                },
-                "evasion": {
                     "value": 0
                 },
                 "perception": {
                     "value": 0
                 },
+                "knowledge": {
+                    "value": 0
+                },
+                "endurance": {
+                    "value": 0
+                },
+                "operate": {
+                    "value": 0
+                },
                 "negotiation": {
+                    "value": 0
+                },
+                "analyze": {
                     "value": 0
                 },
                 "resistance": {
                     "value": 0
                 },
-                "knowledge": {
-                    "value": 0
-                },
-                "analyze": {
+                "evasion": {
                     "value": 0
                 },
                 "accuracy": {
@@ -106,6 +106,7 @@
         },
         "item": {
             "templates": ["base", "general"],
+            "type": "weapon",
             "equip": false,
             "attack": 0,
             "magic": 0,
