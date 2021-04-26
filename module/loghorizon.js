@@ -5,7 +5,7 @@ import { LoghorizonItem } from "./item/item.js";
 import { LoghorizonItemSheet } from "./item/item-sheet.js";
 import { loghorizon } from "./config.js";
 
-Hooks.once("init", async function () {
+Hooks.once("init", function () {
     game.loghorizon = {
         LoghorizonActor,
         LoghorizonItem,
