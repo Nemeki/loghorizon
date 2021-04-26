@@ -106,7 +106,7 @@
         },
         "item": {
             "templates": ["base", "general"],
-            "type": "weapon",
+            "category": "weapon",
             "equip": false,
             "attack": 0,
             "magic": 0,
