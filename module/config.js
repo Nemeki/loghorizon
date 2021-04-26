@@ -11,3 +11,11 @@ loghorizonD.races = {
     foxtail: "loghorizonD.race.foxtail",
     raceofritual: "loghorizonD.race.raceofritual",
 };
+
+loghorizonD.items = {
+    weapon: "loghorizonD.itemsTypes.weapon",
+    protection: "loghorizonD.itemsTypes.protection",
+    consumable: "loghorizonD.itemsTypes.consumable",
+    bag: "loghorizonD.itemsTypes.bag",
+    other: "loghorizonD.itemsTypes.other",
+};

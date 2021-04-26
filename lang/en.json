@@ -1,7 +1,8 @@
 {
     "loghorizonD": {
         "parameters": {
-            "race": "Race"
+            "race": "Race",
+            "category": "Category"
         },
         "race": {
             "human": "Human",
@@ -12,6 +13,13 @@
             "wolffang": "Wolf Fang",
             "foxtail": "Fox Tail",
             "raceofritual": "Race of Ritual"
+        },
+        "itemsTypes": {
+            "weapon": "Weapon",
+            "protection": "Protection",
+            "consumable": "Consumable",
+            "bag": "Bag",
+            "other": "Other"
         }
     }
 }
