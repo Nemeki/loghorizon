@@ -93,14 +93,21 @@
         {{!-- Base stats Tab --}}
         <div class="tab base stats" data-group="primary" data-tab="basestats">
             <div class="basic grid grid-3col">
-                <div class="resource flexrow flex-group-center">
-                    <label for="data.race" class="resource-label">Race</label>
-                    <input
-                        type="text"
-                        name="data.race"
-                        value="{{data.race}}"
-                        data-dtype="List"
-                    />
+                <div>
+                    <table>
+                        <tr>
+                            <th>{{localize "loghorizonD.parameters.race"}}</th>
+                        </tr>
+                        <td>
+                            <select name="data.race">
+                                {{#select data.race}}
+                                {{#each config.races as |name type|}}
+                                <option value="{{type}}">{{localize name}}</option>
+                                {{/each}}
+                                {{/select}}
+                            </select>
+                        </td>
+                    </table>
                 </div>
                 <div class="resource flexrow flex-group-center">
                     <label for="data.class" class="resource-label">Class</label>

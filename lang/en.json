@@ -1,5 +1,8 @@
 {
-    "loghorizon": {
+    "loghorizonD": {
+        "parameters": {
+            "race": "Race"
+        },
         "race": {
             "human": "Human",
             "elf": "Elf",

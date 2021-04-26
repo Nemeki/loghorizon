@@ -35,7 +35,7 @@ export class LoghorizonItemSheet extends ItemSheet {
     /** @override */
     getData() {
         const data = super.getData();
-        data.config = CONFIG.loghorizon;
+        data.config = CONFIG.loghorizonD;
         return data;
     }
 

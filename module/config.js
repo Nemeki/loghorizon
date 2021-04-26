@@ -1,13 +1,13 @@
-export const loghorizon = {};
+export const loghorizonD = {};
 
-loghorizon.races = {
+loghorizonD.races = {
     none: "",
-    human: "loghorizon.race.human",
-    elf: "loghorizon.race.elf",
-    dwarf: "loghorizon.race.dwarf",
-    halfalv: "loghorizon.race.halfalv",
-    werecat: "loghorizon.race.werecat",
-    wolffang: "loghorizon.race.wolffang",
-    foxtail: "loghorizon.race.foxtail",
-    raceofritual: "loghorizon.race.raceofritual",
+    human: "loghorizonD.race.human",
+    elf: "loghorizonD.race.elf",
+    dwarf: "loghorizonD.race.dwarf",
+    halfalv: "loghorizonD.race.halfalv",
+    werecat: "loghorizonD.race.werecat",
+    wolffang: "loghorizonD.race.wolffang",
+    foxtail: "loghorizonD.race.foxtail",
+    raceofritual: "loghorizonD.race.raceofritual",
 };
