@@ -52,6 +52,7 @@
                     data-dtype="Number"
                 />
             </div>
+            {{#if (eq data.category "weapon")}}
             <div class="resource flexrow flex-group-center">
                 <label for="data.attack" class="resource-label">Attack</label>
                 <input
@@ -61,6 +62,7 @@
                     data-dtype="Number"
                 />
             </div>
+
             <div class="resource flexrow flex-group-center">
                 <label for="data.magic" class="resource-label">Magic</label>
                 <input
@@ -70,6 +72,7 @@
                     data-dtype="Number"
                 />
             </div>
+            {{/if}} {{#if (eq data.category "protection")}}
             <div class="resource flexrow flex-group-center">
                 <label for="data.pdef" class="resource-label">P. Def</label>
                 <input
@@ -88,6 +91,18 @@
                     data-dtype="Number"
                 />
             </div>
+            {{/if}} {{#if (eq data.category "bag")}}
+            <div class="resource flexrow flex-group-center">
+                <label for="data.slots" class="resource-label">Slots</label>
+                <input
+                    type="text"
+                    name="data.slots"
+                    value="{{data.slots}}"
+                    data-dtype="Number"
+                />
+            </div>
+            {{/if}}
+
             <div class="resource flexrow flex-group-center">
                 <label for="data.accuracy" class="resource-label"
                     >Accuracy</label
