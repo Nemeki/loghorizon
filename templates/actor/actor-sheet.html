@@ -116,12 +116,7 @@
                     <label for="data.archetype" class="resource-label"
                         >Archetype</label
                     >
-                    <input
-                        type="text"
-                        name="data.archetype"
-                        value="{{data.archetype}}"
-                        data-dtype="Text"
-                    />
+                    <span>{{data.archetype}}</span>
                 </div>
                 <div class="resource flexrow flex-group-center">
                     <label for="data.sex" class="resource-label">Sex</label>
@@ -150,7 +145,7 @@
             <div class="basic grid grid-4col">
                 <div class="sidebar">
                     {{#each data.attributes as |attribute key|}}
-                    <div class="attribute flexrow flex-group-center">
+                    <div class="attribute flexcol flex-group-center">
                         <label
                             for="data.attributes.{{key}}.value"
                             class="resource-label"
@@ -166,24 +161,191 @@
                     {{/each}}
                 </div>
             
-                <div class="basic grid grid-3col">
-                    {{#each data.abilities as |ability key|}}
-                    <div class="ability flexrow flex-group-center">
+                <div class="sidebar">
+                    <div class="ability flexcol flex-group-center">
                         <label
-                            for="data.abilities.{{key}}.value"
-                            class="resource-label"
-                            >{{key}}</label
+                            for="data.abilities.athletics.value"
+                            class="resource-label rollable"
+                            data-roll="d6+@abilities.athletics.value"
+                            data-label="Athletics"
+                            >Athletics</label
                         >
                         <span
                             class="ability rollable"
-                            data-roll="d6+@abilities.{{key}}.value"
-                            data-label="{{key}}"
-                            >{{numberFormat ability.value decimals=0
+                            data-roll="d6+@abilities.athletics.value"
+                            data-label="Athletics"
+                            >{{numberFormat data.abilities.athletics.value decimals=0
                             sign=false}}</span
                         >
                     </div>
-                    {{/each}}
+                    <div class="ability flexcol flex-group-center">
+                        <label
+                            for="data.abilities.disable.value"
+                            class="resource-label rollable"
+                            data-roll="d6+@abilities.disable.value"
+                            data-label="Disable"
+                            >Disable</label
+                        >
+                        <span
+                            class="ability rollable"
+                            data-roll="d6+@abilities.disable.value"
+                            data-label="Disable"
+                            >{{numberFormat data.abilities.disable.value decimals=0
+                            sign=false}}</span
+                        >
+                    </div>
+                    <div class="ability flexcol flex-group-center">
+                        <label
+                            for="data.abilities.perception.value"
+                            class="resource-label rollable"
+                            data-roll="d6+@abilities.perception.value"
+                            data-label="Perception"
+                            >Perception</label
+                        >
+                        <span
+                            class="ability rollable"
+                            data-roll="d6+@abilities.perception.value"
+                            data-label="Perception"
+                            >{{numberFormat data.abilities.perception.value decimals=0
+                            sign=false}}</span
+                        >
+                    </div>
+                    <div class="ability flexcol flex-group-center">
+                        <label
+                            for="data.abilities.knowledge.value"
+                            class="resource-label rollable"
+                            data-roll="d6+@abilities.knowledge.value"
+                            data-label="Knowledge"
+                            >Knowledge</label
+                        >
+                        <span
+                            class="ability rollable"
+                            data-roll="d6+@abilities.knowledge.value"
+                            data-label="Knowledge"
+                            >{{numberFormat data.abilities.knowledge.value decimals=0
+                            sign=false}}</span
+                        >
+                    </div>
                 </div>
+
+                <div class="sidebar">
+                    <div class="ability flexcol flex-group-center">
+                        <label
+                            for="data.abilities.endurance.value"
+                            class="resource-label rollable"
+                            data-roll="d6+@abilities.endurance.value"
+                            data-label="Endurance"
+                            >Endurance</label
+                        >
+                        <span
+                            class="ability rollable"
+                            data-roll="d6+@abilities.endurance.value"
+                            data-label="Endurance"
+                            >{{numberFormat data.abilities.endurance.value decimals=0
+                            sign=false}}</span
+                        >
+                    </div>
+                    <div class="ability flexcol flex-group-center">
+                        <label
+                            for="data.abilities.operate.value"
+                            class="resource-label rollable"
+                            data-roll="d6+@abilities.operate.value"
+                            data-label="Operate"
+                            >Operate</label
+                        >
+                        <span
+                            class="ability rollable"
+                            data-roll="d6+@abilities.operate.value"
+                            data-label="Operate"
+                            >{{numberFormat data.abilities.operate.value decimals=0
+                            sign=false}}</span
+                        >
+                    </div>
+                    <div class="ability flexcol flex-group-center">
+                        <label
+                            for="data.abilities.negotiation.value"
+                            class="resource-label rollable"
+                            data-roll="d6+@abilities.negotiation.value"
+                            data-label="Negotiation"
+                            >Negotiation</label
+                        >
+                        <span
+                            class="ability rollable"
+                            data-roll="d6+@abilities.negotiation.value"
+                            data-label="Negotiation"
+                            >{{numberFormat data.abilities.negotiation.value decimals=0
+                            sign=false}}</span
+                        >
+                    </div>
+                    <div class="ability flexcol flex-group-center">
+                        <label
+                            for="data.abilities.analyze.value"
+                            class="resource-label rollable"
+                            data-roll="d6+@abilities.analyze.value"
+                            data-label="Analyze"
+                            >Analyze</label
+                        >
+                        <span
+                            class="ability rollable"
+                            data-roll="d6+@abilities.analyze.value"
+                            data-label="Analyze"
+                            >{{numberFormat data.abilities.analyze.value decimals=0
+                            sign=false}}</span
+                        >
+                    </div>
+                </div>
+
+                <div class="sidebar">
+                    <div class="ability flexcol flex-group-center">
+                        <label
+                            for="data.abilities.accuracy.value"
+                            class="resource-label rollable"
+                            data-roll="d6+@abilities.accuracy.value"
+                            data-label="Accuracy"
+                            >Accuracy</label
+                        >
+                        <span
+                            class="ability rollable"
+                            data-roll="d6+@abilities.accuracy.value"
+                            data-label="Accuracy"
+                            >{{numberFormat data.abilities.accuracy.value decimals=0
+                            sign=false}}</span
+                        >
+                    </div>
+                    <div class="ability flexcol flex-group-center">
+                        <label
+                            for="data.abilities.evasion.value"
+                            class="resource-label rollable"
+                            data-roll="d6+@abilities.evasion.value"
+                            data-label="Evasion"
+                            >Evasion</label
+                        >
+                        <span
+                            class="ability rollable"
+                            data-roll="d6+@abilities.evasion.value"
+                            data-label="Evasion"
+                            >{{numberFormat data.abilities.evasion.value decimals=0
+                            sign=false}}</span
+                        >
+                    </div>
+                    <div class="ability flexcol flex-group-center">
+                        <label
+                            for="data.abilities.resistance.value"
+                            class="resource-label rollable"
+                            data-roll="d6+@abilities.resistance.value"
+                            data-label="Resistance"
+                            >Resistance</label
+                        >
+                        <span
+                            class="ability rollable"
+                            data-roll="d6+@abilities.resistance.value"
+                            data-label="Resistance"
+                            >{{numberFormat data.abilities.resistance.value decimals=0
+                            sign=false}}</span
+                        >
+                    </div>
+                </div>
+
             </div>
         </div>
 
