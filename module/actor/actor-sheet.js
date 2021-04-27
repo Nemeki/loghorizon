@@ -77,36 +77,36 @@ export class LoghorizonActorSheet extends ActorSheet {
         actorData.skills = skills;
     }
 
-    /* -------------------------------------------- */
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
     /** @override */
     activateListeners(html) {
         super.activateListeners(html);
 
-        // Everything below here is only needed if the sheet is editable
+        //  Everything below here is only needed if the sheet is editable  //
         if (!this.options.editable) return;
 
-        // Add Inventory Item
+        // ~~~~~~~~~~ Add Inventory Item ~~~~~~~~~ //
         html.find(".item-create").click(this._onItemCreate.bind(this));
 
-        // Update Inventory Item
+        // ~~~~~~~~ Update Inventory Item ~~~~~~~~ //
         html.find(".item-edit").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.getOwnedItem(li.data("itemId"));
             item.sheet.render(true);
         });
 
-        // Delete Inventory Item
+        // ~~~~~~~~ Delete Inventory Item ~~~~~~~~ //
         html.find(".item-delete").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
             this.actor.deleteOwnedItem(li.data("itemId"));
             li.slideUp(200, () => this.render(false));
         });
 
-        // Rollable abilities.
+        // ~~~~~~~~~ Rollable abilities. ~~~~~~~~~ //
         html.find(".rollable").click(this._onRoll.bind(this));
 
-        // Drag events for macros.
+        // ~~~~~~~ Drag events for macros. ~~~~~~~ //
         if (this.actor.owner) {
             let handler = (ev) => this._onDragStart(ev);
             html.find("li.item").each((i, li) => {
