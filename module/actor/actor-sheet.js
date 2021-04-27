@@ -20,7 +20,9 @@ export class LoghorizonActorSheet extends ActorSheet {
         });
     }
 
-    /* -------------------------------------------- */
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
+    // Comentario de prueba
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
     /** @override */
     getData() {

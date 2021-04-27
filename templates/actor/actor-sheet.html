@@ -1,7 +1,12 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-    {{!-- Sheet Header --}}
+    <!--~~~~~~~~~~~~ Sheet Header ~~~~~~~~~~~~-->
     <header class="sheet-header">
-        {{!-- La imagen, el nombre y otros valores de acceso rapido que van arriba--}}
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Imagen, el nombre y otros valores de 
+        acceso rápido. He decidido colocar
+        El hate y el hp además.
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
         <img
             class="profile-img"
             src="{{actor.img}}"
@@ -19,13 +24,22 @@
                     placeholder="Name"
                 />
             </h1>
-            {{!-- The grid classes are defined in scss/global/_grid.scss. To
-            use, use both the "grid" and "grid-Ncol" class where "N" can be any
-            number from 1 to 12 and will create that number of columns. --}}
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            The grid classes are defined in 
+            scss/global/_grid.scss. To use, use both 
+            the "grid" and "grid-Ncol" class where "N"
+            can be any number from 1 to 12 and will create
+            that number of columns.
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
             <div class="resources grid grid-3col">
-                {{!-- "flex-group-center" is also defined in the _grid.scss file
-                and it will add a small amount of padding, a border, and will
-                center all of its child elements content and text. --}}
+                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                "flex-group-center" is also defined in the
+                _grid.scss file and it will add a small amount
+                of padding, a border, and will
+                center all of its child elements content
+                and text.
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
                 <div class="resource flex-group-center">
                     <label for="data.level.value" class="resource-label"
                         >Level</label
@@ -80,7 +94,8 @@
         </div>
     </header>
 
-    {{!-- Sheet Tab Navigation --}}
+    
+    <!--~~~~~~~~ Sheet Tab Navigation ~~~~~~~~-->
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="basestats">Base stats</a>
         <a class="item" data-tab="battle">Battle status</a>
@@ -88,9 +103,9 @@
         <a class="item" data-tab="skills">Skills</a>
     </nav>
 
-    {{!-- Sheet Body --}}
+    <!--~~~~~~~~~~~~~ Sheet Body ~~~~~~~~~~~~~-->
     <section class="sheet-body">
-        {{!-- Base stats Tab --}}
+        <!--~~~~~~~~~~~ Base stats Tab ~~~~~~~~~~~-->
         <div class="tab base stats" data-group="primary" data-tab="basestats">
             <div class="basic grid grid-3col">
                 <div class="resource flexrow flex-group-center">
@@ -134,9 +149,13 @@
                     />
                 </div>
             </div>
-            {{!-- The grid classes are defined in scss/global/_grid.scss. To
-            use, use both the "grid" and "grid-Ncol" class where "N" can be any
-            number from 1 to 12 and will create that number of columns. --}}
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            The grid classes are defined in
+            scss/global/_grid.scss. To use, use both the
+            "grid" and "grid-Ncol" class where "N" can
+            be any number from 1 to 12 and will create
+            that number of columns.
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
             <div class="basic grid grid-4col">
                 <div class="sidebar">
                     {{#each data.attributes as |attribute key|}}
@@ -344,7 +363,7 @@
             </div>
         </div>
 
-        {{!-- Battle Tab --}}
+        <!--~~~~~~~~~~~~~ Battle Tab ~~~~~~~~~~~~~-->
         <div class="tab battle status" data-group="primary" data-tab="battle">
             <div class="resource grid grid-2col">
                 {{#each data.battleStatus as |status key|}}
@@ -365,7 +384,7 @@
             </div>
         </div>
 
-        {{!-- Owned Items Tab --}}
+        <!--~~~~~~~~~~ Owned Items Tab ~~~~~~~~~~~-->
         <div class="tab items" data-group="primary" data-tab="items">
             <ol class="items-list">
                 <li class="item flexrow item-header">
