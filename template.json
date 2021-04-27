@@ -23,7 +23,6 @@
             "race": "Human",
             "sex": "",
             "biography": "",
-            "archetype": "Healer",
             "attributes": {
                 "str": {
                     "value": 0

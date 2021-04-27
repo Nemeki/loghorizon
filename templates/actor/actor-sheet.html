@@ -1,7 +1,7 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
     {{!-- Sheet Header --}}
     <header class="sheet-header">
-        {{!-- La imagen, el nombre y otros valores de acceso rapido --}}
+        {{!-- La imagen, el nombre y otros valores de acceso rapido que van arriba--}}
         <img
             class="profile-img"
             src="{{actor.img}}"
@@ -104,13 +104,8 @@
                     </select>
                 </div>
                 <div class="resource flexrow flex-group-center">
-                    <label for="data.class" class="resource-label">Class</label>
-                    <input
-                        type="text"
-                        name="data.class"
-                        value="{{data.class}}"
-                        data-dtype="Text"
-                    />
+                    <label for="data.class.name" class="resource-label">Class</label>
+                    <span>{{data.class.name}}</span>
                 </div>
                 <div class="resource flexrow flex-group-center">
                     <label for="data.archetype" class="resource-label"
