@@ -19,24 +19,61 @@ export class LoghorizonActor extends Actor {
             this._prepareCharacterData(actorData);
     }
 
-    /**
-     * Prepare Character type specific data
-     */
+    /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     * Prepara datos especificos del personaje
+     * es una buena función para calcular
+     * valores derivados
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
     _prepareCharacterData(actorData) {
         const data = actorData.data;
         var high = 0;
+        data.health.max = 0;
 
-        // Make modifications to data here. For example:
+        //data.health.max = data.class.increases.hp.base;
 
-        // Loop through ability scores, and add their modifiers to our sheet output. DELETE
-        //key es el nombre del atributo DELETE
+        switch (data.race) {
+            case "human":
+                data.health.max = data.health.max + 8;
+                data.battleStatus.fate.max = data.battleStatus.fate.max + 1;
+                //TODO:
+                break;
+            case "elf":
+                data.health.max = data.health.max + 8;
+                data.battleStatus.fate.max = data.battleStatus.fate.max + 1;
+                break;
+            case "dwarf":
+                data.health.max = data.health.max + 16;
+                break;
+            case "halfalv":
+                data.health.max = data.health.max + 8;
+                data.battleStatus.fate.max = data.battleStatus.fate.max + 1;
+                break;
+            case "werecat":
+                data.health.max = data.health.max + 8;
+                data.battleStatus.fate.max = data.battleStatus.fate.max + 1;
+                break;
+            case "wolffang":
+                data.health.max = data.health.max + 16;
+                break;
+            case "foxtail":
+                data.health.max = data.health.max + 8;
+                data.battleStatus.fate.max = data.battleStatus.fate.max + 1;
+                break;
+            case "raceofritual":
+                data.battleStatus.fate.max = data.battleStatus.fate.max + 2;
+                break;
+            default:
+                break;
+        }
+
         for (let [key, attribute] of Object.entries(data.attributes)) {
-            // Calculate the modifier using d20 rules.
             attribute.mod = Math.floor(attribute.value / 3);
             if (attribute.mod > high) {
                 high = attribute.mod;
             }
         }
+
+        // ~~~~~~ Calculo de las habilidades ~~~~~ //
         data.abilities.athletics.value = data.attributes.str.mod;
         data.abilities.endurance.value = data.attributes.str.mod;
         data.abilities.disable.value = data.attributes.dex.mod;
@@ -50,6 +87,7 @@ export class LoghorizonActor extends Actor {
 
         data.abilities.accuracy.value = high;
 
+        // ~~~~~~ Calculo del battle status ~~~~~~ //
         data.battleStatus.phyDefense.value = data.attributes.str.mod * 2;
         data.battleStatus.magicDefense.value = data.attributes.int.mod * 2;
         data.battleStatus.initiative.value =

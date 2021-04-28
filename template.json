@@ -25,16 +25,24 @@
             "biography": "",
             "attributes": {
                 "str": {
-                    "value": 0
+                    "value": 0,
+                    "sValue": 0,
+                    "hcheck": false
                 },
                 "dex": {
-                    "value": 0
+                    "value": 0,
+                    "sValue": 0,
+                    "hcheck": false
                 },
                 "pow": {
-                    "value": 0
+                    "value": 0,
+                    "sValue": 0,
+                    "hcheck": false
                 },
                 "int": {
-                    "value": 0
+                    "value": 0,
+                    "sValue": 0,
+                    "hcheck": false
                 }
             },
             "abilities": {
@@ -150,7 +158,7 @@
                     "value": 0
                 },
                 "hp": {
-                    "base": 0,
+                    "base": 1,
                     "modifier": 0
                 }
             }
