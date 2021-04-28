@@ -79,6 +79,28 @@
                     </div>
                 </div>
                 <div class="resource flex-group-center">
+                    <label for="data.fate.value" class="resource-label"
+                        >Fate</label
+                    >
+                    <div
+                        class="resource-content flexrow flex-center flex-between"
+                    >
+                        <input
+                            type="text"
+                            name="data.fate.value"
+                            value="{{data.fate.value}}"
+                            data-dtype="Number"
+                        />
+                        <span> / </span>
+                        <input
+                            type="text"
+                            name="data.fate.max"
+                            value="{{data.fate.max}}"
+                            data-dtype="Number"
+                        />
+                    </div>
+                </div>
+                <div class="resource flex-group-center">
                     <label for="data.hate.value" class="resource-label"
                         >Hate</label
                     >
@@ -367,18 +389,20 @@
         <div class="tab battle status" data-group="primary" data-tab="battle">
             <div class="resource grid grid-2col">
                 {{#each data.battleStatus as |status key|}}
-                <div class="status flexcol flex-group-center">
+                <div class="resource flex-group-center">
                     <label
                         for="data.battleStatus.{{key}}.value"
                         class="resource-label"
                         >{{key}}</label
                     >
-                    <input
-                        type="text"
-                        name="data.battleStatus.{{key}}.value"
-                        value="{{status.value}}"
-                        data-dtype="Number"
-                    />
+                    <div class="resource-content flexrow flex-center flex-between">
+                        <input
+                            type="text"
+                            name="data.battleStatus.{{key}}.value"
+                            value="{{status.value}}"
+                            data-dtype="Number"
+                        />
+                    </div>
                 </div>
                 {{/each}}
             </div>

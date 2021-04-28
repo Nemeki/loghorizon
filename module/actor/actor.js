@@ -28,40 +28,40 @@ export class LoghorizonActor extends Actor {
         const data = actorData.data;
         var high = 0;
         data.health.max = 0;
-        data.battleStatus.fate.max = 0;
+        data.fate.max = 0;
 
         //data.health.max = data.class.increases.hp.base;
 
         switch (data.race) {
             case "human":
                 data.health.max = data.health.max + 8;
-                data.battleStatus.fate.max = data.battleStatus.fate.max + 1;
+                data.fate.max = data.fate.max + 1;
                 //TODO:
                 break;
             case "elf":
                 data.health.max = data.health.max + 8;
-                data.battleStatus.fate.max = data.battleStatus.fate.max + 1;
+                data.fate.max = data.fate.max + 1;
                 break;
             case "dwarf":
                 data.health.max = data.health.max + 16;
                 break;
             case "halfalv":
                 data.health.max = data.health.max + 8;
-                data.battleStatus.fate.max = data.battleStatus.fate.max + 1;
+                data.fate.max = data.fate.max + 1;
                 break;
             case "werecat":
                 data.health.max = data.health.max + 8;
-                data.battleStatus.fate.max = data.battleStatus.fate.max + 1;
+                data.fate.max = data.fate.max + 1;
                 break;
             case "wolffang":
                 data.health.max = data.health.max + 16;
                 break;
             case "foxtail":
                 data.health.max = data.health.max + 8;
-                data.battleStatus.fate.max = data.battleStatus.fate.max + 1;
+                data.fate.max = data.fate.max + 1;
                 break;
             case "raceofritual":
-                data.battleStatus.fate.max = data.battleStatus.fate.max + 2;
+                data.fate.max = data.fate.max + 2;
                 break;
             default:
                 break;
