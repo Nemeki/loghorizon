@@ -28,6 +28,7 @@ export class LoghorizonActor extends Actor {
         const data = actorData.data;
         var high = 0;
         data.health.max = 0;
+        data.battleStatus.fate.max = 0;
 
         //data.health.max = data.class.increases.hp.base;
 
