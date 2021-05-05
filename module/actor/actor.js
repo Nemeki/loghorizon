@@ -27,12 +27,12 @@ export class LoghorizonActor extends Actor {
     _prepareCharacterData(actorData) {
         const data = actorData.data;
         var high = 0;
-        data.health.max = 0;
-        data.fate.max = 0;
+        //data.health.max = 0;
+        //data.fate.max = 0;
 
         //data.health.max = data.class.increases.hp.base;
 
-        switch (data.race) {
+        /* switch (data.race) {
             case "human":
                 data.health.max = data.health.max + 8;
                 data.fate.max = data.fate.max + 1;
@@ -65,7 +65,7 @@ export class LoghorizonActor extends Actor {
                 break;
             default:
                 break;
-        }
+        } */
 
         for (let [key, attribute] of Object.entries(data.attributes)) {
             attribute.mod = Math.floor(attribute.value / 3);
