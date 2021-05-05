@@ -1,42 +1,68 @@
-<form class="{{cssClass}} container-fluid" autocomplete="off">
+<form class="{{cssClass}}" autocomplete="off">
 
 <div class = "sidebar">
-    <div class="grid grid-2col">
-        <img
-            class="profile-img"
-            src="{{actor.img}}"
-            data-edit="img"
-            title="{{actor.name}}"
-            height="100"
-            width="100"
-        />
-
-        <h1 class="charname">
-                <input
-                    name="name"
-                    type="text"
-                    value="{{actor.name}}"
-                    placeholder="Name"
-                />
-        </h1>
-    </div>
-
-    <div class="resource flex-group-center">
-        <label for="data.level.value" class="resource-label">
-            Level
-        </label>
-        <div class="resource-content flexrow flex-center flex-between">
-            <input
-                type="text"
-                name="data.level.value"
-                value="{{data.level.value}}"
-                data-dtype="Number"
+    <section>
+        <div class="grid grid-2col">
+            <img
+                class="profile-img"
+                src="{{actor.img}}"
+                data-edit="img"
+                title="{{actor.name}}"
+                height="80"
+                width="80"
             />
+
+            <div>
+                <h1 class="charname">
+                        <input
+                            name="name"
+                            type="text"
+                            value="{{actor.name}}"
+                            placeholder="Name"
+                        />
+                </h1>
+
+                <div class="flex-group-center">
+                    <label for="data.level.value" class="resource-label">
+                        Level
+                    </label>
+                    <div class="resource-content flexrow flex-center flex-between">
+                        <input
+                            type="text"
+                            name="data.level.value"
+                            value="{{data.level.value}}"
+                            data-dtype="Number"
+                        />
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <hr>
+    
+    <section>
+        <div class="grid grid-2col">
+            <img
+                class="class-img"
+                src="{{data.class.img}}"
+                data-edit="img"
+                title="{{data.class.name}}"
+                height="40"
+                width="40"
+            />
+            <label for="data.class.name" class="resource-label">
+                {{data.class.name}}
+            </label>
+        </div>
+    </section>
+
+    <hr>
 
     <div class="status">
-        {{> "systems/loghorizon/templates/actor/partials/statuscreen.hbs"}}
+        <section>
+            {{> "systems/loghorizon/templates/actor/partials/statuscreen.hbs"}}
+        </section>
     </div>
 </div>
 
