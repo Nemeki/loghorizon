@@ -50,7 +50,45 @@
 
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
-            {{!-- As you add new fields, add them in here! --}}
+            <div>
+                <div class="attribute flexrow flex-group-center">
+                    <label for="data.hp.base" class="resource-label"
+                        >HP base</label
+                    >
+                    <input
+                        type="text"
+                        name="data.hp.base"
+                        value="{{data.hp.base}}"
+                        data-dtype="Number"
+                    />
+                </div>
+                <div class="attribute flexrow flex-group-center">
+                    <label for="data.hp.modifier" class="resource-label"
+                        >HP modifier</label
+                    >
+                    <input
+                        type="text"
+                        name="data.hp.modifier"
+                        value="{{data.hp.modifier}}"
+                        data-dtype="Number"
+                    />
+                </div>
+                {{#each data.statIncreases as |attribute key|}}
+                <div class="attribute flexrow flex-group-center">
+                    <label
+                        for="data.statIncreases.{{key}}.value"
+                        class="resource-label"
+                        >{{key}}</label
+                    >
+                    <input
+                        type="text"
+                        name="data.statIncreases.{{key}}.value"
+                        value="{{attribute.value}}"
+                        data-dtype="Number"
+                    />
+                </div>
+                {{/each}}
+            </div>
         </div>
     </section>
 </form>

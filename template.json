@@ -144,7 +144,7 @@
         "class": {
             "templates": ["base"],
             "archetype": "",
-            "increases": {
+            "statIncreases": {
                 "str": {
                     "value": 0
                 },
@@ -156,11 +156,11 @@
                 },
                 "int": {
                     "value": 0
-                },
-                "hp": {
-                    "base": 3,
-                    "modifier": 0
                 }
+            },
+            "hp": {
+                "base": 3,
+                "modifier": 0
             }
         }
     }
