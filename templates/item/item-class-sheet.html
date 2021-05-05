@@ -27,7 +27,23 @@
     {{!-- Sheet Body --}}
     <section class="sheet-body">
         {{!-- Description Tab --}}
+
         <div class="tab" data-group="primary" data-tab="description">
+            <div class="flexrow">
+                <label for="data.archetype" class="resource-label">
+                    Archetype
+                </label>
+                <input
+                    type="text"
+                    name="data.archetype"
+                    value="{{data.archetype}}"
+                    data-dtype="Text"
+                />
+            </div>
+
+            <label for="data.description" class="resource-label">
+                Description
+            </label>
             {{editor content=data.description target="data.description"
             button=true owner=owner editable=editable}}
         </div>
