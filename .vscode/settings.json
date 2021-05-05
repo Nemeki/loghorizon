@@ -9,5 +9,20 @@
         "raceofritual",
         "werecat",
         "wolffang"
-    ]
+    ],
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#77eebc",
+        "activityBar.activeBorder": "#b971ed",
+        "activityBar.background": "#77eebc",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#b971ed",
+        "activityBarBadge.foreground": "#15202b",
+        "tab.activeBorder": "#77eebc",
+        "titleBar.activeBackground": "#49e9a6",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.inactiveBackground": "#49e9a699",
+        "titleBar.inactiveForeground": "#15202b99"
+    },
+    "peacock.color": "#49e9a6"
 }

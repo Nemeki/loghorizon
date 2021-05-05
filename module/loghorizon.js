@@ -5,6 +5,14 @@ import { LoghorizonItem } from "./item/item.js";
 import { LoghorizonItemSheet } from "./item/item-sheet.js";
 import { loghorizonD } from "./config.js";
 
+async function preloadHandlebarsTemplates() {
+    const templatePaths = [
+        "systems/loghorizon/templates/actor/partials/statuscreen.hbs",
+    ];
+
+    return loadTemplates(templatePaths);
+}
+
 Hooks.once("init", function () {
     game.loghorizon = {
         LoghorizonActor,
@@ -35,6 +43,16 @@ Hooks.once("init", function () {
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("loghorizon", LoghorizonItemSheet, {
         makeDefault: true,
+    });
+
+    preloadHandlebarsTemplates();
+    Handlebars.registerHelper("times", function (n, content) {
+        let result = "";
+        for (let i = 0; i < n; ++i) {
+            result += content.fn(i);
+        }
+
+        return result;
     });
 
     // If you need to add Handlebars helpers, here are a few useful examples:

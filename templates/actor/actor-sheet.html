@@ -1,4 +1,4 @@
-<form class="{{cssClass}} flexcol" autocomplete="off">
+<form class="{{cssClass}}" autocomplete="off">
     <!--~~~~~~~~~~~~ Sheet Header ~~~~~~~~~~~~-->
     <header class="sheet-header">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -104,19 +104,17 @@
                     <label for="data.hate.value" class="resource-label"
                         >Hate</label
                     >
-                        <input
-                            type="text"
-                            name="data.hate.value"
-                            value="{{data.hate.value}}"
-                            data-dtype="Number"
-                        />
-                    </div>
+                    <input
+                        type="text"
+                        name="data.hate.value"
+                        value="{{data.hate.value}}"
+                        data-dtype="Number"
+                    />
                 </div>
             </div>
         </div>
     </header>
 
-    
     <!--~~~~~~~~ Sheet Tab Navigation ~~~~~~~~-->
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="basestats">Base stats</a>
@@ -131,17 +129,20 @@
         <div class="tab base stats" data-group="primary" data-tab="basestats">
             <div class="basic grid grid-3col">
                 <div class="resource flexrow flex-group-center">
-                    <label for="data.race" class="resource-label">{{localize "loghorizonD.parameters.race"}}</label>
+                    <label for="data.race" class="resource-label"
+                        >{{localize "loghorizonD.parameters.race"}}</label
+                    >
                     <select name="data.race">
-                        {{#select data.race}}
-                        {{#each config.races as |name type|}}
+                        {{#select data.race}} {{#each config.races as |name
+                        type|}}
                         <option value="{{type}}">{{localize name}}</option>
-                        {{/each}}
-                        {{/select}}
+                        {{/each}} {{/select}}
                     </select>
                 </div>
                 <div class="resource flexrow flex-group-center">
-                    <label for="data.class.name" class="resource-label">Class</label>
+                    <label for="data.class.name" class="resource-label"
+                        >Class</label
+                    >
                     <span>{{data.class.name}}</span>
                 </div>
                 <div class="resource flexrow flex-group-center">
@@ -196,7 +197,7 @@
                     </div>
                     {{/each}}
                 </div>
-            
+
                 <div class="sidebar">
                     <div class="ability flexcol flex-group-center">
                         <label
@@ -210,8 +211,8 @@
                             class="ability rollable"
                             data-roll="d6+@abilities.athletics.value"
                             data-label="Athletics"
-                            >{{numberFormat data.abilities.athletics.value decimals=0
-                            sign=false}}</span
+                            >{{numberFormat data.abilities.athletics.value
+                            decimals=0 sign=false}}</span
                         >
                     </div>
                     <div class="ability flexcol flex-group-center">
@@ -226,8 +227,8 @@
                             class="ability rollable"
                             data-roll="d6+@abilities.disable.value"
                             data-label="Disable"
-                            >{{numberFormat data.abilities.disable.value decimals=0
-                            sign=false}}</span
+                            >{{numberFormat data.abilities.disable.value
+                            decimals=0 sign=false}}</span
                         >
                     </div>
                     <div class="ability flexcol flex-group-center">
@@ -242,8 +243,8 @@
                             class="ability rollable"
                             data-roll="d6+@abilities.perception.value"
                             data-label="Perception"
-                            >{{numberFormat data.abilities.perception.value decimals=0
-                            sign=false}}</span
+                            >{{numberFormat data.abilities.perception.value
+                            decimals=0 sign=false}}</span
                         >
                     </div>
                     <div class="ability flexcol flex-group-center">
@@ -258,8 +259,8 @@
                             class="ability rollable"
                             data-roll="d6+@abilities.knowledge.value"
                             data-label="Knowledge"
-                            >{{numberFormat data.abilities.knowledge.value decimals=0
-                            sign=false}}</span
+                            >{{numberFormat data.abilities.knowledge.value
+                            decimals=0 sign=false}}</span
                         >
                     </div>
                 </div>
@@ -277,8 +278,8 @@
                             class="ability rollable"
                             data-roll="d6+@abilities.endurance.value"
                             data-label="Endurance"
-                            >{{numberFormat data.abilities.endurance.value decimals=0
-                            sign=false}}</span
+                            >{{numberFormat data.abilities.endurance.value
+                            decimals=0 sign=false}}</span
                         >
                     </div>
                     <div class="ability flexcol flex-group-center">
@@ -293,8 +294,8 @@
                             class="ability rollable"
                             data-roll="d6+@abilities.operate.value"
                             data-label="Operate"
-                            >{{numberFormat data.abilities.operate.value decimals=0
-                            sign=false}}</span
+                            >{{numberFormat data.abilities.operate.value
+                            decimals=0 sign=false}}</span
                         >
                     </div>
                     <div class="ability flexcol flex-group-center">
@@ -309,8 +310,8 @@
                             class="ability rollable"
                             data-roll="d6+@abilities.negotiation.value"
                             data-label="Negotiation"
-                            >{{numberFormat data.abilities.negotiation.value decimals=0
-                            sign=false}}</span
+                            >{{numberFormat data.abilities.negotiation.value
+                            decimals=0 sign=false}}</span
                         >
                     </div>
                     <div class="ability flexcol flex-group-center">
@@ -325,8 +326,8 @@
                             class="ability rollable"
                             data-roll="d6+@abilities.analyze.value"
                             data-label="Analyze"
-                            >{{numberFormat data.abilities.analyze.value decimals=0
-                            sign=false}}</span
+                            >{{numberFormat data.abilities.analyze.value
+                            decimals=0 sign=false}}</span
                         >
                     </div>
                 </div>
@@ -344,8 +345,8 @@
                             class="ability rollable"
                             data-roll="d6+@abilities.accuracy.value"
                             data-label="Accuracy"
-                            >{{numberFormat data.abilities.accuracy.value decimals=0
-                            sign=false}}</span
+                            >{{numberFormat data.abilities.accuracy.value
+                            decimals=0 sign=false}}</span
                         >
                     </div>
                     <div class="ability flexcol flex-group-center">
@@ -360,8 +361,8 @@
                             class="ability rollable"
                             data-roll="d6+@abilities.evasion.value"
                             data-label="Evasion"
-                            >{{numberFormat data.abilities.evasion.value decimals=0
-                            sign=false}}</span
+                            >{{numberFormat data.abilities.evasion.value
+                            decimals=0 sign=false}}</span
                         >
                     </div>
                     <div class="ability flexcol flex-group-center">
@@ -376,12 +377,11 @@
                             class="ability rollable"
                             data-roll="d6+@abilities.resistance.value"
                             data-label="Resistance"
-                            >{{numberFormat data.abilities.resistance.value decimals=0
-                            sign=false}}</span
+                            >{{numberFormat data.abilities.resistance.value
+                            decimals=0 sign=false}}</span
                         >
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -395,7 +395,9 @@
                         class="resource-label"
                         >{{key}}</label
                     >
-                    <div class="resource-content flexrow flex-center flex-between">
+                    <div
+                        class="resource-content flexrow flex-center flex-between"
+                    >
                         <input
                             type="text"
                             name="data.battleStatus.{{key}}.value"

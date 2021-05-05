@@ -7,7 +7,7 @@ export class LoghorizonActorSheet extends ActorSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             classes: ["loghorizon", "sheet", "actor"],
-            template: "systems/loghorizon/templates/actor/actor-sheet.html",
+            template: "systems/loghorizon/templates/actor/actor-sheet.hbs",
             width: 600,
             height: 600,
             tabs: [

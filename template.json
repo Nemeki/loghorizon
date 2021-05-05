@@ -158,7 +158,7 @@
                     "value": 0
                 },
                 "hp": {
-                    "base": 1,
+                    "base": 3,
                     "modifier": 0
                 }
             }

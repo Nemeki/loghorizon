@@ -1,0 +1,43 @@
+<form class="{{cssClass}} container-fluid" autocomplete="off">
+
+<div class = "sidebar">
+    <div class="grid grid-2col">
+        <img
+            class="profile-img"
+            src="{{actor.img}}"
+            data-edit="img"
+            title="{{actor.name}}"
+            height="100"
+            width="100"
+        />
+
+        <h1 class="charname">
+                <input
+                    name="name"
+                    type="text"
+                    value="{{actor.name}}"
+                    placeholder="Name"
+                />
+        </h1>
+    </div>
+
+    <div class="resource flex-group-center">
+        <label for="data.level.value" class="resource-label">
+            Level
+        </label>
+        <div class="resource-content flexrow flex-center flex-between">
+            <input
+                type="text"
+                name="data.level.value"
+                value="{{data.level.value}}"
+                data-dtype="Number"
+            />
+        </div>
+    </div>
+
+    <div class="status">
+        {{> "systems/loghorizon/templates/actor/partials/statuscreen.hbs"}}
+    </div>
+</div>
+
+</form>
