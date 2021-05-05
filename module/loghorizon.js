@@ -8,6 +8,7 @@ import { loghorizonD } from "./config.js";
 async function preloadHandlebarsTemplates() {
     const templatePaths = [
         "systems/loghorizon/templates/actor/partials/statuscreen.hbs",
+        "systems/loghorizon/templates/actor/partials/baseStats.hbs",
     ];
 
     return loadTemplates(templatePaths);
