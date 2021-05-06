@@ -1,0 +1,21 @@
+<div class="resource grid grid-2col">
+    {{#each data.battleStatus as |status key|}}
+    <div class="resource flex-group-center">
+        <label
+            for="data.battleStatus.{{key}}.value"
+            class="resource-label"
+            >{{key}}</label
+        >
+        <div
+            class="resource-content flexrow flex-center flex-between"
+        >
+            <input
+                type="text"
+                name="data.battleStatus.{{key}}.value"
+                value="{{status.value}}"
+                data-dtype="Number"
+            />
+        </div>
+    </div>
+    {{/each}}
+</div>

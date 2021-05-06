@@ -1,74 +1,114 @@
 <form class="{{cssClass}}" autocomplete="off">
 
-<div class = "sidebar">
-    <section>
-        <div class="grid grid-2col">
-            <img
-                class="profile-img"
-                src="{{actor.img}}"
-                data-edit="img"
-                title="{{actor.name}}"
-                height="100"
-                width="100"
-            />
+<div class="charasheet-grid">
+    <section>    
+        <div>
+            <div class="image-grid">
+                <img
+                    class="profile-img"
+                    src="{{actor.img}}"
+                    data-edit="img"
+                    title="{{actor.name}}"
+                    height="100"
+                    width="100"
+                />
 
-            <div>
-                <h1 class="charname">
+                <div>
+                    <h1 class="charname">
+                            <input
+                                name="name"
+                                type="text"
+                                value="{{actor.name}}"
+                                placeholder="Name"
+                            />
+                    </h1>
+
+                    <div class="flexrow flex-group-center">
+                        <label for="data.level.value" class="resource-label">
+                            Level
+                        </label>
                         <input
-                            name="name"
                             type="text"
-                            value="{{actor.name}}"
-                            placeholder="Name"
+                            name="data.level.value"
+                            value="{{data.level.value}}"
+                            data-dtype="Number"
                         />
-                </h1>
+                    </div>
 
-                <div class="flexrow flex-group-center">
-                    <label for="data.level.value" class="resource-label">
-                        Level
-                    </label>
-                    <input
-                        type="text"
-                        name="data.level.value"
-                        value="{{data.level.value}}"
-                        data-dtype="Number"
-                    />
+                    <div class="resource flexrow flex-group-center">
+                        <label for="data.race" class="resource-label"
+                            >{{localize "loghorizonD.parameters.race"}}</label
+                        >
+                        <select name="data.race">
+                            {{#select data.race}} {{#each config.races as |name
+                            type|}}
+                            <option value="{{type}}">{{localize name}}</option>
+                            {{/each}} {{/select}}
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <hr>
-    
-    <section>
-        <div class="grid grid-2col">
-            <img
-                class="class-img"
-                src="{{data.class.img}}"
-                data-edit="img"
-                title="{{data.class.name}}"
-                height="40"
-                width="40"
-            />
-            <div class="flexcol">
-                <label for="data.class.name" class="resource-label">
-                    {{data.class.name}}
-                </label>
-                <span>{{data.class.data.archetype}}</span>
+        <hr>
+        
+        <div>
+            <div class="image2-grid">
+                <img
+                    class="class-img"
+                    src="{{data.class.img}}"
+                    data-edit="img"
+                    title="{{data.class.name}}"
+                    height="40"
+                    width="40"
+                />
+                <div class="flexcol">
+                    <label for="data.class.name" class="resource-label">
+                        {{data.class.name}}
+                    </label>
+                    <span>{{data.class.data.archetype}}</span>
+                </div>
             </div>
+        
+
+        <hr>
+
+        <div class="status">
+                {{> "systems/loghorizon/templates/actor/partials/statuscreen.hbs"}}
         </div>
     </section>
 
-    <hr>
+    <section>
+        <!--~~~~~~~~ Sheet Tab Navigation ~~~~~~~~-->
+        <nav class="sheet-tabs tabs" data-group="primary">
+            <a class="item" data-tab="description">Description</a>
+            <a class="item" data-tab="basestats">Base stats</a>
+            <a class="item" data-tab="battle">Battle status</a>
+            <a class="item" data-tab="items">Items</a>
+            <a class="item" data-tab="skills">Skills</a>
+        </nav>
+        <br>
+        <section class="sheet-body">
+            <div class="tab" data-group="primary" data-tab="description">
+                <label for="data.description" class="resource-label">
+                    Description
+                </label>
+                {{editor content=data.description target="data.description"
+                button=true owner=owner editable=editable}}
+            </div>
+            <div class="tab base stats" data-group="primary" data-tab="basestats">
+                {{> "systems/loghorizon/templates/actor/partials/baseStats.hbs"}}
+            </div>
 
-    <div class="status">
-        <section>
-            {{> "systems/loghorizon/templates/actor/partials/statuscreen.hbs"}}
+            <div class="tab battle status" data-group="primary" data-tab="battle">
+                {{> "systems/loghorizon/templates/actor/partials/battleStats.hbs"}}
+            </div>
+
+            <div class="tab items" data-group="primary" data-tab="items">
+                {{> "systems/loghorizon/templates/actor/partials/itemsTab.hbs"}}
+            </div>
         </section>
-    </div>
+    </section>
 </div>
-
-<section>
-    {{!- > "systems/loghorizon/templates/actor/partials/baseStats.hbs"}}
-</section>
 
 </form>

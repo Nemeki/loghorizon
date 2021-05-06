@@ -8,8 +8,8 @@ export class LoghorizonActorSheet extends ActorSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["loghorizon", "sheet", "actor"],
             template: "systems/loghorizon/templates/actor/actor-sheet.hbs",
-            width: 300,
-            height: 600,
+            width: 750,
+            height: 450,
             tabs: [
                 {
                     navSelector: ".sheet-tabs",

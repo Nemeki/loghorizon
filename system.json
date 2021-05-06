@@ -8,7 +8,7 @@
     "templateVersion": 2,
     "author": "Nemeki",
     "esmodules": ["module/loghorizon.js"],
-    "styles": ["css/loghorizon.css"],
+    "styles": ["styles/loghorizon.css"],
     "scripts": [],
     "packs": [],
     "languages": [

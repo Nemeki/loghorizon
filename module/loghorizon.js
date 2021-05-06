@@ -9,6 +9,8 @@ async function preloadHandlebarsTemplates() {
     const templatePaths = [
         "systems/loghorizon/templates/actor/partials/statuscreen.hbs",
         "systems/loghorizon/templates/actor/partials/baseStats.hbs",
+        "systems/loghorizon/templates/actor/partials/battleStats.hbs",
+        "systems/loghorizon/templates/actor/partials/itemsTab.hbs",
     ];
 
     return loadTemplates(templatePaths);
@@ -29,7 +31,7 @@ Hooks.once("init", function () {
      */
     CONFIG.Combat.initiative = {
         formula: "1d20 + @abilities.dex.mod",
-        decimals: 2, //FIXME:
+        decimals: 0, //FIXME:
     };
 
     // Define custom Entity classes

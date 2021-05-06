@@ -1,58 +1,31 @@
-<div>
-    <div class="basic grid grid-3col">
-        <div class="resource flexrow flex-group-center">
-            <label for="data.race" class="resource-label"
-                >{{localize "loghorizonD.parameters.race"}}</label
-            >
-            <select name="data.race">
-                {{#select data.race}} {{#each config.races as |name
-                type|}}
-                <option value="{{type}}">{{localize name}}</option>
-                {{/each}} {{/select}}
-            </select>
-        </div>
-        <div class="resource flexrow flex-group-center">
-            <label for="data.class.name" class="resource-label"
-                >Class</label
-            >
-            <span>{{data.class.name}}</span>
-        </div>
-        <div class="resource flexrow flex-group-center">
-            <label for="data.class.data.archetype" class="resource-label"
-                >Archetype</label
-            >
-            <span>{{data.class.data.archetype}}</span>
-        </div>
-        <div class="resource flexrow flex-group-center">
-            <label for="data.sex" class="resource-label">Sex</label>
-            <input
-                type="text"
-                name="data.sex"
-                value="{{data.sex}}"
-                data-dtype="Text"
-            />
-        </div>
-        <div class="resource flexrow flex-group-center">
-            <label for="data.subclass" class="resource-label"
-                >Subclass</label
-            >
-            <input
-                type="text"
-                name="data.subclass"
-                value="{{data.subclass}}"
-                data-dtype="Text"
-            />
-        </div>
-    </div>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    The grid classes are defined in
-    scss/global/_grid.scss. To use, use both the
-    "grid" and "grid-Ncol" class where "N" can
-    be any number from 1 to 12 and will create
-    that number of columns.
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <div class="basic grid grid-4col">
-        <div class="sidebar">
+
+
+    
+<div class="resource flexrow flex-group-center">
+    <label for="data.sex" class="resource-label">Sex</label>
+    <input
+        type="text"
+        name="data.sex"
+        value="{{data.sex}}"
+        data-dtype="Text"
+    />
+</div>
+<div class="resource flexrow flex-group-center">
+    <label for="data.subclass" class="resource-label"
+        >Subclass</label
+    >
+    <input
+        type="text"
+        name="data.subclass"
+        value="{{data.subclass}}"
+        data-dtype="Text"
+    />
+</div>
+
+<br>
+
+<section>
+    <div class="atr-grid ">
             {{#each data.attributes as |attribute key|}}
             <div class="attribute flexcol flex-group-center">
                 <label
@@ -68,9 +41,7 @@
                 />
             </div>
             {{/each}}
-        </div>
 
-        <div class="sidebar">
             <div class="ability flexcol flex-group-center">
                 <label
                     for="data.abilities.athletics.value"
@@ -135,9 +106,7 @@
                     decimals=0 sign=false}}</span
                 >
             </div>
-        </div>
 
-        <div class="sidebar">
             <div class="ability flexcol flex-group-center">
                 <label
                     for="data.abilities.endurance.value"
@@ -202,9 +171,7 @@
                     decimals=0 sign=false}}</span
                 >
             </div>
-        </div>
 
-        <div class="sidebar">
             <div class="ability flexcol flex-group-center">
                 <label
                     for="data.abilities.accuracy.value"
@@ -253,6 +220,5 @@
                     decimals=0 sign=false}}</span
                 >
             </div>
-        </div>
     </div>
-</div>
+</section>
