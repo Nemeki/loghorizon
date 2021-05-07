@@ -27,47 +27,80 @@ export class LoghorizonActor extends Actor {
     _prepareCharacterData(actorData) {
         const data = actorData.data;
         var high = 0;
-        //data.health.max = 0;
-        //data.fate.max = 0;
+        data.health.rMod = 0;
+        data.fate.rMod = 0;
 
-        //data.health.max = data.class.increases.hp.base;
-
-        /* switch (data.race) {
+        switch (data.race) {
             case "human":
-                data.health.max = data.health.max + 8;
-                data.fate.max = data.fate.max + 1;
-                //TODO:
+                data.health.rMod = 8;
+                data.fate.rMod = 1;
+                data.attributes.str.rMod = 0;
+                data.attributes.dex.rMod = 0;
+                data.attributes.pow.rMod = 0;
+                data.attributes.int.rMod = 0;
                 break;
             case "elf":
-                data.health.max = data.health.max + 8;
-                data.fate.max = data.fate.max + 1;
+                data.health.rMod = 8;
+                data.fate.rMod = 1;
+                data.attributes.str.rMod = 0;
+                data.attributes.dex.rMod = 1;
+                data.attributes.pow.rMod = 1;
+                data.attributes.int.rMod = 0;
                 break;
             case "dwarf":
-                data.health.max = data.health.max + 16;
+                data.health.rMod = 16;
+                data.fate.rMod = 0;
+                data.attributes.str.rMod = 1;
+                data.attributes.dex.rMod = 0;
+                data.attributes.pow.rMod = 1;
+                data.attributes.int.rMod = 0;
                 break;
             case "halfalv":
-                data.health.max = data.health.max + 8;
-                data.fate.max = data.fate.max + 1;
+                data.health.rMod = 8;
+                data.fate.rMod = 1;
+                data.attributes.str.rMod = 0;
+                data.attributes.dex.rMod = 1;
+                data.attributes.pow.rMod = 0;
+                data.attributes.int.rMod = 1;
                 break;
             case "werecat":
-                data.health.max = data.health.max + 8;
-                data.fate.max = data.fate.max + 1;
+                data.health.rMod = 8;
+                data.fate.rMod = 1;
+                data.attributes.str.rMod = 1;
+                data.attributes.dex.rMod = 1;
+                data.attributes.pow.rMod = 0;
+                data.attributes.int.rMod = 0;
                 break;
             case "wolffang":
-                data.health.max = data.health.max + 16;
+                data.health.rMod = 16;
+                data.fate.rMod = 0;
+                data.attributes.str.rMod = 2;
+                data.attributes.dex.rMod = 0;
+                data.attributes.pow.rMod = 0;
+                data.attributes.int.rMod = 0;
                 break;
             case "foxtail":
-                data.health.max = data.health.max + 8;
-                data.fate.max = data.fate.max + 1;
+                data.health.rMod = 8;
+                data.fate.rMod = 1;
+                data.attributes.str.rMod = 0;
+                data.attributes.dex.rMod = 0;
+                data.attributes.pow.rMod = 1;
+                data.attributes.int.rMod = 1;
                 break;
             case "raceofritual":
-                data.fate.max = data.fate.max + 2;
+                data.health.rMod = 0;
+                data.fate.rMod = 2;
+                data.attributes.str.rMod = 0;
+                data.attributes.dex.rMod = 0;
+                data.attributes.pow.rMod = 0;
+                data.attributes.int.rMod = 2;
                 break;
             default:
                 break;
-        } */
+        }
 
         for (let [key, attribute] of Object.entries(data.attributes)) {
+            attribute.value = attribute.sValue + attribute.rMod; //attribute.cMod
             attribute.mod = Math.floor(attribute.value / 3);
             if (attribute.mod > high) {
                 high = attribute.mod;
@@ -89,6 +122,8 @@ export class LoghorizonActor extends Actor {
         data.abilities.accuracy.value = high;
 
         // ~~~~~~ Calculo del battle status ~~~~~~ //
+        data.health.max = data.health.rMod; //data.health.cMod
+        data.fate.max = data.fate.rMod;
         data.battleStatus.phyDefense.value = data.attributes.str.mod * 2;
         data.battleStatus.magicDefense.value = data.attributes.int.mod * 2;
         data.battleStatus.initiative.value =

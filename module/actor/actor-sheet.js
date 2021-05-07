@@ -9,7 +9,7 @@ export class LoghorizonActorSheet extends ActorSheet {
             classes: ["loghorizon", "sheet", "actor"],
             template: "systems/loghorizon/templates/actor/actor-sheet.hbs",
             width: 750,
-            height: 450,
+            height: 500,
             tabs: [
                 {
                     navSelector: ".sheet-tabs",
@@ -48,6 +48,7 @@ export class LoghorizonActorSheet extends ActorSheet {
      */
     _prepareCharacterItems(sheetData) {
         const actorData = sheetData.actor;
+        const cData = actorData.data;
 
         // Initialize containers.
         const equipment = [];
@@ -66,7 +67,13 @@ export class LoghorizonActorSheet extends ActorSheet {
             else if (i.type === "skill") {
                 skills.push(i);
             } else if (i.type === "class") {
-                actorData.data.class = i;
+                cData.class = i;
+                /* cData.attributes.str.cMod = i.data.statIncreases.str.value;
+                cData.attributes.dex.cMod = i.data.statIncreases.dex.value;
+                cData.attributes.pow.cMod = i.data.statIncreases.pow.value;
+                cData.attributes.int.cMod = i.data.statIncreases.int.value;
+                let nvHp = cData.level.value * i.data.hp.modifier;
+                cData.health.cMod = i.data.hp.base + nvHp; */
             }
         }
 

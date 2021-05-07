@@ -81,21 +81,14 @@
     <section>
         <!--~~~~~~~~ Sheet Tab Navigation ~~~~~~~~-->
         <nav class="sheet-tabs tabs" data-group="primary">
-            <a class="item" data-tab="description">Description</a>
             <a class="item" data-tab="basestats">Base stats</a>
             <a class="item" data-tab="battle">Battle status</a>
             <a class="item" data-tab="items">Items</a>
             <a class="item" data-tab="skills">Skills</a>
+            <a class="item" data-tab="biography">Biography</a>
         </nav>
         <br>
         <section class="sheet-body">
-            <div class="tab" data-group="primary" data-tab="description">
-                <label for="data.description" class="resource-label">
-                    Description
-                </label>
-                {{editor content=data.description target="data.description"
-                button=true owner=owner editable=editable}}
-            </div>
             <div class="tab base stats" data-group="primary" data-tab="basestats">
                 {{> "systems/loghorizon/templates/actor/partials/baseStats.hbs"}}
             </div>
@@ -106,6 +99,13 @@
 
             <div class="tab items" data-group="primary" data-tab="items">
                 {{> "systems/loghorizon/templates/actor/partials/itemsTab.hbs"}}
+            </div>
+            <div class="tab" data-group="primary" data-tab="biography">
+                <label for="data.description" class="resource-label">
+                    Description
+                </label>
+                {{editor content=data.description target="data.description"
+                button=true owner=owner editable=editable}}
             </div>
         </section>
     </section>

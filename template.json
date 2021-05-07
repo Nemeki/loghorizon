@@ -30,23 +30,19 @@
             "attributes": {
                 "str": {
                     "value": 0,
-                    "sValue": 0,
-                    "hcheck": false
+                    "sValue": 0
                 },
                 "dex": {
                     "value": 0,
-                    "sValue": 0,
-                    "hcheck": false
+                    "sValue": 0
                 },
                 "pow": {
                     "value": 0,
-                    "sValue": 0,
-                    "hcheck": false
+                    "sValue": 0
                 },
                 "int": {
                     "value": 0,
-                    "sValue": 0,
-                    "hcheck": false
+                    "sValue": 0
                 }
             },
             "abilities": {
@@ -92,6 +88,15 @@
                     "value": 0
                 },
                 "recovery": {
+                    "value": 0
+                },
+                "phyDef": {
+                    "value": 0
+                },
+                "magicDef": {
+                    "value": 0
+                },
+                "initiative": {
                     "value": 0
                 },
                 "speed": {
