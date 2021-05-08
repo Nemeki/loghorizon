@@ -9,7 +9,8 @@
                 "health": {
                     "value": 0,
                     "min": 0,
-                    "max": 0
+                    "max": 0,
+                    "cMod": 0
                 },
                 "hate": {
                     "value": 0,
@@ -82,25 +83,32 @@
             },
             "battleStatus": {
                 "damage": {
-                    "value": 0
+                    "value": 0,
+                    "tag": "Damage"
                 },
                 "magic": {
-                    "value": 0
+                    "value": 0,
+                    "tag": "Magic"
                 },
                 "recovery": {
-                    "value": 0
+                    "value": 0,
+                    "tag": "Recovery"
                 },
                 "phyDef": {
-                    "value": 0
+                    "value": 0,
+                    "tag": "Physical defense"
                 },
                 "magicDef": {
-                    "value": 0
+                    "value": 0,
+                    "tag": "Magical defense"
                 },
                 "initiative": {
-                    "value": 0
+                    "value": 0,
+                    "tag": "Initiative"
                 },
                 "speed": {
-                    "value": 2
+                    "value": 2,
+                    "tag": "Speed"
                 }
             }
         }

@@ -34,4 +34,28 @@ export class LoghorizonItem extends Item {
             flavor: label,
         });
     }
+
+    /* get amods() {
+        const item = this.data;
+        const itemData = item.data;
+
+        let result = {
+            str: itemData.statIncreases.str.value,
+            dex: itemData.statIncreases.dex.value,
+            pow: itemData.statIncreases.pow.value,
+            int: itemData.statIncreases.int.value,
+        };
+        return result;
+    }*/
+
+    /* calcHp(level) {
+        const item = this.data;
+        const itemData = item.data;
+
+        let base = itemData.hp.base;
+        let mod = itemData.hp.modifier;
+        let lvl = level - 1;
+
+        return base + mod * lvl;
+    } */
 }

@@ -17,9 +17,9 @@
         </h1>
     </header>
     <section class="sheet-body">
-        <div class="resources grid grid-1col">
+        <div>
             <div class="resource flexrow flex-group-center">
-                <label for="data.category" class="resource-label"
+                <label for="data.category" class="resource-label2"
                     >{{localize "loghorizonD.parameters.category"}}</label
                 >
                 <select name="data.category">
@@ -31,7 +31,7 @@
             </div>
 
             <div class="resource flexrow flex-group-center">
-                <label for="data.rank" class="resource-label">Rank</label>
+                <label for="data.rank" class="resource-label2">Rank</label>
                 <input
                     type="text"
                     name="data.rank"
@@ -40,11 +40,17 @@
                 />
             </div>
             <div class="resource flexrow flex-group-center">
-                <label for="data.tagList" class="resource-label">Tags</label>
-                <textarea name="data.tagList">{{data.tagList}}</textarea>
+                <label for="data.tagList" class="resource-label2">Tags</label>
+
+                <input
+                    type="text"
+                    name="data.tagList"
+                    value="{{data.tagList}}"
+                    data-dtype="Text"
+                />
             </div>
             <div class="resource flexrow flex-group-center">
-                <label for="data.price" class="resource-label">Price</label>
+                <label for="data.price" class="resource-label2">Price</label>
                 <input
                     type="text"
                     name="data.price"
@@ -54,7 +60,7 @@
             </div>
             {{#if (eq data.category "weapon")}}
             <div class="resource flexrow flex-group-center">
-                <label for="data.attack" class="resource-label">Attack</label>
+                <label for="data.attack" class="resource-label2">Attack</label>
                 <input
                     type="text"
                     name="data.attack"
@@ -64,7 +70,7 @@
             </div>
 
             <div class="resource flexrow flex-group-center">
-                <label for="data.magic" class="resource-label">Magic</label>
+                <label for="data.magic" class="resource-label2">Magic</label>
                 <input
                     type="text"
                     name="data.magic"
@@ -74,7 +80,7 @@
             </div>
             {{/if}} {{#if (eq data.category "protection")}}
             <div class="resource flexrow flex-group-center">
-                <label for="data.pdef" class="resource-label">P. Def</label>
+                <label for="data.pdef" class="resource-label2">P. Def</label>
                 <input
                     type="text"
                     name="data.pdef"
@@ -83,7 +89,7 @@
                 />
             </div>
             <div class="resource flexrow flex-group-center">
-                <label for="data.mdef" class="resource-label">M. Def</label>
+                <label for="data.mdef" class="resource-label2">M. Def</label>
                 <input
                     type="text"
                     name="data.mdef"
@@ -93,7 +99,7 @@
             </div>
             {{/if}} {{#if (eq data.category "bag")}}
             <div class="resource flexrow flex-group-center">
-                <label for="data.slots" class="resource-label">Slots</label>
+                <label for="data.slots" class="resource-label2">Slots</label>
                 <input
                     type="text"
                     name="data.slots"
@@ -104,7 +110,7 @@
             {{/if}}
 
             <div class="resource flexrow flex-group-center">
-                <label for="data.accuracy" class="resource-label"
+                <label for="data.accuracy" class="resource-label2"
                     >Accuracy</label
                 >
                 <input
@@ -115,7 +121,7 @@
                 />
             </div>
             <div class="resource flexrow flex-group-center">
-                <label for="data.initiative" class="resource-label"
+                <label for="data.initiative" class="resource-label2"
                     >Initiative</label
                 >
                 <input

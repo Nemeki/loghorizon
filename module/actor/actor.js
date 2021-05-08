@@ -1,3 +1,5 @@
+import { calcStat, healthCalc } from "./auxscripts/actorCalculations.js";
+
 /**
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
@@ -27,80 +29,24 @@ export class LoghorizonActor extends Actor {
     _prepareCharacterData(actorData) {
         const data = actorData.data;
         var high = 0;
-        data.health.rMod = 0;
-        data.fate.rMod = 0;
+        /* let modifier = calcStat(data.class, data.race);
 
-        switch (data.race) {
-            case "human":
-                data.health.rMod = 8;
-                data.fate.rMod = 1;
-                data.attributes.str.rMod = 0;
-                data.attributes.dex.rMod = 0;
-                data.attributes.pow.rMod = 0;
-                data.attributes.int.rMod = 0;
-                break;
-            case "elf":
-                data.health.rMod = 8;
-                data.fate.rMod = 1;
-                data.attributes.str.rMod = 0;
-                data.attributes.dex.rMod = 1;
-                data.attributes.pow.rMod = 1;
-                data.attributes.int.rMod = 0;
-                break;
-            case "dwarf":
-                data.health.rMod = 16;
-                data.fate.rMod = 0;
-                data.attributes.str.rMod = 1;
-                data.attributes.dex.rMod = 0;
-                data.attributes.pow.rMod = 1;
-                data.attributes.int.rMod = 0;
-                break;
-            case "halfalv":
-                data.health.rMod = 8;
-                data.fate.rMod = 1;
-                data.attributes.str.rMod = 0;
-                data.attributes.dex.rMod = 1;
-                data.attributes.pow.rMod = 0;
-                data.attributes.int.rMod = 1;
-                break;
-            case "werecat":
-                data.health.rMod = 8;
-                data.fate.rMod = 1;
-                data.attributes.str.rMod = 1;
-                data.attributes.dex.rMod = 1;
-                data.attributes.pow.rMod = 0;
-                data.attributes.int.rMod = 0;
-                break;
-            case "wolffang":
-                data.health.rMod = 16;
-                data.fate.rMod = 0;
-                data.attributes.str.rMod = 2;
-                data.attributes.dex.rMod = 0;
-                data.attributes.pow.rMod = 0;
-                data.attributes.int.rMod = 0;
-                break;
-            case "foxtail":
-                data.health.rMod = 8;
-                data.fate.rMod = 1;
-                data.attributes.str.rMod = 0;
-                data.attributes.dex.rMod = 0;
-                data.attributes.pow.rMod = 1;
-                data.attributes.int.rMod = 1;
-                break;
-            case "raceofritual":
-                data.health.rMod = 0;
-                data.fate.rMod = 2;
-                data.attributes.str.rMod = 0;
-                data.attributes.dex.rMod = 0;
-                data.attributes.pow.rMod = 0;
-                data.attributes.int.rMod = 2;
-                break;
-            default:
-                break;
+        data.attributes.str.value = data.attributes.str.sValue + modifier[0];
+        data.attributes.dex.value = data.attributes.dex.sValue + modifier[1];
+        data.attributes.pow.value = data.attributes.pow.sValue + modifier[2];
+        data.attributes.int.value = data.attributes.int.sValue + modifier[3];
+
+        data.health.max = healthCalc(data.class, data.race, data.level.value); */
+
+        if (data.race == "dwarf" || data.race == "wolffang") {
+            data.fate.rMod = 0;
+        } else if (data.race == "raceofritual") {
+            data.fate.rMod = 2;
+        } else {
+            data.fate.rMod = 1;
         }
 
         for (let [key, attribute] of Object.entries(data.attributes)) {
-            attribute.value = attribute.sValue + attribute.rMod; //attribute.cMod
             attribute.mod = Math.floor(attribute.value / 3);
             if (attribute.mod > high) {
                 high = attribute.mod;
@@ -122,7 +68,6 @@ export class LoghorizonActor extends Actor {
         data.abilities.accuracy.value = high;
 
         // ~~~~~~ Calculo del battle status ~~~~~~ //
-        data.health.max = data.health.rMod; //data.health.cMod
         data.fate.max = data.fate.rMod;
         data.battleStatus.phyDefense.value = data.attributes.str.mod * 2;
         data.battleStatus.magicDefense.value = data.attributes.int.mod * 2;

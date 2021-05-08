@@ -7,8 +7,8 @@ export class LoghorizonItemSheet extends ItemSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             classes: ["loghorizon", "sheet", "item"],
-            width: 520,
-            height: 480,
+            width: 350,
+            height: 450,
             tabs: [
                 {
                     navSelector: ".sheet-tabs",

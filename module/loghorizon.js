@@ -11,6 +11,7 @@ async function preloadHandlebarsTemplates() {
         "systems/loghorizon/templates/actor/partials/baseStats.hbs",
         "systems/loghorizon/templates/actor/partials/battleStats.hbs",
         "systems/loghorizon/templates/actor/partials/itemsTab.hbs",
+        "systems/loghorizon/templates/actor/partials/problem.hbs", //DELETE
     ];
 
     return loadTemplates(templatePaths);

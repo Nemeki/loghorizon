@@ -1,28 +1,114 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
         <div class="header-fields">
-            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+            <h1 class="charname">
+                <input
+                    name="name"
+                    type="text"
+                    value="{{item.name}}"
+                    placeholder="Name"
+                />
+            </h1>
         </div>
     </header>
 
-    {{!-- Sheet Tab Navigation --}}
-    <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">Description</a>
-        <a class="item" data-tab="attributes">Attributes</a>
-    </nav>
-
     {{!-- Sheet Body --}}
+
     <section class="sheet-body">
-
-        {{!-- Description Tab --}}
-        <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        <div class="tags-grid">
+            <div class="resource flexcol">
+                <label for="data.type" class="resource-label2">Type</label>
+                <input
+                    type="text"
+                    name="data.type"
+                    value="{{data.type}}"
+                    data-dtype="Text"
+                />
+            </div>
+            <div class="resource flexcol">
+                <label for="data.tags" class="resource-label2">Tags</label>
+                <input
+                    type="text"
+                    name="data.tags"
+                    value="{{data.tags}}"
+                    data-dtype="Text"
+                />
+            </div>
         </div>
-
-        {{!-- Attributes Tab --}}
-        <div class="tab attributes" data-group="primary" data-tab="attributes">
-            {{!-- As you add new fields, add them in here! --}}
+        <div class="grid-2col">
+            <div class="resource flexrow flex-group-left">
+                <label for="data.maxSR" class="resource-label2">Max SR</label>
+                <input
+                    type="text"
+                    name="data.maxSR"
+                    value="{{data.maxSR}}"
+                    data-dtype="Number"
+                />
+            </div>
+            <div class="resource flexrow flex-group-left">
+                <label for="data.timing" class="resource-label2">Timing</label>
+                <input
+                    type="text"
+                    name="data.timing"
+                    value="{{data.timing}}"
+                    data-dtype="Text"
+                />
+            </div>
         </div>
+        <div class="resource flexrow flex-group-left">
+            <label for="data.check" class="resource-label2">Check</label>
+            <input
+                type="text"
+                name="data.check"
+                value="{{data.check}}"
+                data-dtype="Text"
+            />
+        </div>
+        <div class="grid-2col">
+            <div class="resource flexrow flex-group-left">
+                <label for="data.target" class="resource-label2">Target</label>
+                <input
+                    type="text"
+                    name="data.target"
+                    value="{{data.target}}"
+                    data-dtype="Text"
+                />
+            </div>
+
+            <div class="resource flexrow flex-group-left">
+                <label for="data.cost" class="resource-label2">Cost</label>
+                <input
+                    type="text"
+                    name="data.cost"
+                    value="{{data.cost}}"
+                    data-dtype="Text"
+                />
+            </div>
+
+            <div class="resource flexrow flex-group-left">
+                <label for="data.range" class="resource-label2">Range</label>
+                <input
+                    type="text"
+                    name="data.range"
+                    value="{{data.range}}"
+                    data-dtype="Text"
+                />
+            </div>
+
+            <div class="resource flexrow flex-group-left">
+                <label for="data.limit" class="resource-label2">Limit</label>
+                <input
+                    type="text"
+                    name="data.limit"
+                    value="{{data.limit}}"
+                    data-dtype="Text"
+                />
+            </div>
+        </div>
+        <br />
+        <label for="data.description" class="resource-label2">
+            Description
+        </label>
+        <textarea name="data.description">{{data.description}}</textarea>
     </section>
 </form>

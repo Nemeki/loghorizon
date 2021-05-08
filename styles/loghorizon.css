@@ -18,6 +18,7 @@
   -ms-grid-columns: (minmax(0, 1fr))[2];
       grid-template-columns: repeat(2, minmax(0, 1fr));
   margin: 0px 0;
+  padding: auto;
 }
 
 .grid-3col {
@@ -115,6 +116,15 @@
   grid-auto-flow: column;
 }
 
+.tags-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 110px 1fr;
+      grid-template-columns: 110px 1fr;
+  padding: auto;
+  margin: 5px;
+}
+
 .flex-group-center,
 .flex-group-left,
 .flex-group-right {
@@ -157,11 +167,6 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-progress[value] {
-  height: 40px;
-  width: 250px;
 }
 
 /* Styles limited to loghorizon sheets */
@@ -239,6 +244,10 @@ progress[value] {
 .loghorizon .resource-label {
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.loghorizon .resource-label2 {
+  font-weight: bold;
 }
 
 .loghorizon .tabs {

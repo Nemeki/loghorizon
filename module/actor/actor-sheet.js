@@ -1,3 +1,5 @@
+import { calcStat, healthCalc } from "./auxscripts/actorCalculations.js";
+
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -68,12 +70,19 @@ export class LoghorizonActorSheet extends ActorSheet {
                 skills.push(i);
             } else if (i.type === "class") {
                 cData.class = i;
-                /* cData.attributes.str.cMod = i.data.statIncreases.str.value;
-                cData.attributes.dex.cMod = i.data.statIncreases.dex.value;
-                cData.attributes.pow.cMod = i.data.statIncreases.pow.value;
-                cData.attributes.int.cMod = i.data.statIncreases.int.value;
-                let nvHp = cData.level.value * i.data.hp.modifier;
-                cData.health.cMod = i.data.hp.base + nvHp; */
+
+                let modifier = calcStat(i, cData.race);
+
+                cData.attributes.str.value =
+                    cData.attributes.str.sValue + modifier[0];
+                cData.attributes.dex.value =
+                    cData.attributes.dex.sValue + modifier[1];
+                cData.attributes.pow.value =
+                    cData.attributes.pow.sValue + modifier[2];
+                cData.attributes.int.value =
+                    cData.attributes.int.sValue + modifier[3];
+
+                cData.health.max = healthCalc(i, cData.race, cData.level.value);
             }
         }
 
