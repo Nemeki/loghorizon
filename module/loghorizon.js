@@ -1,6 +1,7 @@
 // Import Modules
 import { LoghorizonActor } from "./actor/actor.js";
-import { LoghorizonActorSheet } from "./actor/actor-sheet.js";
+import { LoghorizonCharacterSheet } from "./actor/character-sheet.js";
+import { LoghorizonEnemySheet } from "./actor/enemy-sheet.js";
 import { LoghorizonItem } from "./item/item.js";
 import { LoghorizonItemSheet } from "./item/item-sheet.js";
 import { loghorizonD } from "./config.js";
@@ -41,7 +42,12 @@ Hooks.once("init", function () {
 
     // Register sheet application classes
     Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("loghorizon", LoghorizonActorSheet, {
+    Actors.registerSheet("loghorizon", LoghorizonCharacterSheet, {
+        types: ["character"],
+        makeDefault: true,
+    });
+    Actors.registerSheet("loghorizon", LoghorizonEnemySheet, {
+        types: ["enemy"],
         makeDefault: true,
     });
     Items.unregisterSheet("core", ItemSheet);

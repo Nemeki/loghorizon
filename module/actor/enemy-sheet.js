@@ -4,12 +4,12 @@ import { calcStat, healthCalc } from "./auxscripts/actorCalculations.js";
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class LoghorizonActorSheet extends ActorSheet {
+export class LoghorizonEnemySheet extends ActorSheet {
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             classes: ["loghorizon", "sheet", "actor"],
-            template: "systems/loghorizon/templates/actor/actor-sheet.hbs",
+            template: "systems/loghorizon/templates/actor/enemy-sheet.hbs",
             width: 750,
             height: 500,
             tabs: [
@@ -29,13 +29,10 @@ export class LoghorizonActorSheet extends ActorSheet {
         const data = super.getData();
         data.dtypes = ["String", "Number", "Boolean"];
         data.config = CONFIG.loghorizonD;
-        for (let attr of Object.values(data.data.attributes)) {
-            attr.isCheckbox = attr.dtype === "Boolean";
-        }
 
         // Prepare items.
-        if (this.actor.data.type == "character") {
-            this._prepareCharacterItems(data);
+        if (this.actor.data.type == "enemy") {
+            this._prepareEnemyItems(data);
         }
 
         return data;
@@ -48,7 +45,7 @@ export class LoghorizonActorSheet extends ActorSheet {
      *
      * @return {undefined}
      */
-    _prepareCharacterItems(sheetData) {
+    _prepareEnemyItems(sheetData) {
         const actorData = sheetData.actor;
         const cData = actorData.data;
 
@@ -68,21 +65,6 @@ export class LoghorizonActorSheet extends ActorSheet {
             // Append to skills.
             else if (i.type === "skill") {
                 skills.push(i);
-            } else if (i.type === "class") {
-                cData.class = i;
-
-                let modifier = calcStat(i, cData.race);
-
-                cData.attributes.str.value =
-                    cData.attributes.str.sValue + modifier[0];
-                cData.attributes.dex.value =
-                    cData.attributes.dex.sValue + modifier[1];
-                cData.attributes.pow.value =
-                    cData.attributes.pow.sValue + modifier[2];
-                cData.attributes.int.value =
-                    cData.attributes.int.sValue + modifier[3];
-
-                cData.health.max = healthCalc(i, cData.race, cData.level.value);
             }
         }
 

@@ -17,8 +17,11 @@ export class LoghorizonActor extends Actor {
 
         // Make separate methods for each Actor type (character, npc, etc.) to keep
         // things organized.
-        if (actorData.type === "character")
+        if (actorData.type === "character") {
             this._prepareCharacterData(actorData);
+        } else if (actorData.type === "enemy") {
+            this._prepareEnemyData(actorData);
+        }
     }
 
     /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -73,5 +76,9 @@ export class LoghorizonActor extends Actor {
         data.battleStatus.magicDefense.value = data.attributes.int.mod * 2;
         data.battleStatus.initiative.value =
             data.attributes.str.mod + data.attributes.int.mod;
+    }
+
+    _prepareEnemyData(actorData) {
+        const data = actorData.data;
     }
 }

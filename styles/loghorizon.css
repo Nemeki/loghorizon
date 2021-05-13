@@ -221,6 +221,10 @@
   margin: 0;
 }
 
+.loghorizon h2 {
+  font-weight: bold;
+}
+
 .loghorizon .sheet-tabs {
   -webkit-box-flex: 0;
       -ms-flex: 0;
@@ -252,8 +256,9 @@
 
 .loghorizon .tabs {
   height: 40px;
-  border-top: 1px solid #AAA;
-  border-bottom: 1px solid #AAA;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  margin: 20px;
 }
 
 .loghorizon .tabs .item {

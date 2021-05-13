@@ -1,29 +1,27 @@
 {
     "Actor": {
-        "types": ["character"],
+        "types": ["character", "enemy"],
         "templates": {
             "base": {
-                "level": {
-                    "value": 1
-                },
                 "health": {
                     "value": 0,
                     "min": 0,
-                    "max": 0,
-                    "cMod": 0
-                },
-                "hate": {
-                    "value": 0,
-                    "min": 0
+                    "max": 0
                 }
             }
         },
         "character": {
             "templates": ["base"],
-            "playerName": "",
+            "level": {
+                "value": 1
+            },
             "race": "Human",
             "sex": "",
             "biography": "",
+            "hate": {
+                "value": 0,
+                "min": 0
+            },
             "fate": {
                 "value": 0,
                 "max": 0
@@ -111,6 +109,34 @@
                     "tag": "Speed"
                 }
             }
+        },
+        "enemy": {
+            "templates": ["base"],
+            "cRank": 1,
+            "category": "",
+            "infamy": {
+                "value": 2
+            },
+            "type": "",
+            "race": "",
+            "rank": "",
+            "description": "",
+            "stats": {
+                "str": 1,
+                "dex": 1,
+                "pow": 1,
+                "int": 1
+            },
+            "otherStats": {
+                "evasion": 2,
+                "resistance": 2,
+                "phyDef": 2,
+                "magDef": 2,
+                "hateMulti": 1,
+                "initiative": 1,
+                "speed": 2
+            },
+            "dropValue": 20
         }
     },
     "Item": {
