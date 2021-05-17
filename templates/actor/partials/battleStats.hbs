@@ -1,20 +1,18 @@
-
-{{#each data.battleStatus as |status key|}}
-<div class="resource flex-group-center">
-    <label
-        for="data.battleStatus.{{key}}.value"
-        class="resource-label2"
-        >{{status.tag}}</label
-    >
-    <div
-        class="resource-content flexrow flex-center flex-between"
-    >
-        <input
-            type="text"
-            name="data.battleStatus.{{key}}.value"
-            value="{{status.value}}"
-            data-dtype="Number"
-        />
-    </div>
+<div class="grid grid-3col">
+    {{#each data.battleStatus as |status key|}}
+        <div class="resource flex-group-center">
+            <label
+                for="data.battleStatus.{{key}}.value"
+                class="resource-label2"
+            >{{status.tag}}</label>
+            <div class="resource-content flexrow flex-center flex-between">
+                <input
+                    type="text"
+                    name="data.battleStatus.{{key}}.value"
+                    value="{{status.value}}"
+                    data-dtype="Number"
+                />
+            </div>
+        </div>
+    {{/each}}
 </div>
-{{/each}}

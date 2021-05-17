@@ -1,36 +1,114 @@
 <form class="{{cssClass}}" autocomplete="off">
     <!--~~~~~~~~~~~~ Sheet Header ~~~~~~~~~~~~-->
     <header class="sheet-header">
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        Imagen, el nombre y otros valores de 
-        acceso rápido. He decidido colocar
-        El hate y el hp además.
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-
-        <img
-            class="profile-img"
-            src="{{actor.img}}"
-            data-edit="img"
-            title="{{actor.name}}"
-            height="100"
-            width="100"
-        />
-        <div class="header-fields">
-            <h1 class="charname">
-                <input
-                    name="name"
-                    type="text"
-                    value="{{actor.name}}"
-                    placeholder="Name"
-                />
-            </h1>
+        <div class="image-grid">
             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            The grid classes are defined in 
-            scss/global/_grid.scss. To use, use both 
-            the "grid" and "grid-Ncol" class where "N"
-            can be any number from 1 to 12 and will create
-            that number of columns.
+            Imagen, el nombre y otros valores de 
+            acceso rápido. He decidido colocar
+            El hate y el hp además.
             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+            <img
+                class="profile-img"
+                src="{{actor.img}}"
+                data-edit="img"
+                title="{{actor.name}}"
+                height="100"
+                width="100"
+            />
+            <div class="header-fields">
+                <h1 class="charname">
+                    <input
+                        name="name"
+                        type="text"
+                        value="{{actor.name}}"
+                        placeholder="Name"
+                    />
+                </h1>
+
+                <div class="grid grid-2col">
+                    <div class="flexcol flex-group-center">
+                        <label for="data.cRank" class="resource-label2">
+                            CRank
+                        </label>
+                        <input
+                            type="text"
+                            name="data.cRank"
+                            value="{{data.cRank}}"
+                            data-dtype="Number"
+                        />
+                    </div>
+
+                    <div class="flexcol flex-group-center">
+                        <label for="data.category" class="resource-label2">
+                            Category
+                        </label>
+                        <input
+                            type="text"
+                            name="data.category"
+                            value="{{data.category}}"
+                            data-dtype="Text"
+                        />
+                    </div>
+
+                    <div class="flexcol flex-group-center">
+                        <label for="data.infamy.value" class="resource-label2">
+                            Infamy
+                        </label>
+                        <input
+                            type="text"
+                            name="data.infamy.value"
+                            value="{{data.infamy.value}}"
+                            data-dtype="Text"
+                        />
+                    </div>
+
+                    <div class="flexcol flex-group-center">
+                        <label for="data.dropValue" class="resource-label2">
+                            Drop Value
+                        </label>
+                        <input
+                            type="text"
+                            name="data.dropValue"
+                            value="{{data.dropValue}}"
+                            data-dtype="Text"
+                        />
+                    </div>
+                </div>
+
+            </div>
         </div>
     </header>
+    <body>
+        <div class="grid grid-4col">
+            {{#each data.stats as |stat key|}}
+                <div class="attribute flexcol flex-group-center">
+                    <label
+                        for="data.stats.{{key}}"
+                        class="resource-label"
+                    >{{key}}</label>
+                    <input
+                        type="text"
+                        name="data.stats.{{key}}"
+                        value="{{stat}}"
+                        data-dtype="Number"
+                    />
+                </div>
+            {{/each}}
+            {{#each data.otherStats as |stat key|}}
+                <div class="attribute flexcol flex-group-center">
+                    <label
+                        for="data.otherStats.{{key}}"
+                        class="resource-label"
+                    >{{key}}</label>
+                    <input
+                        type="text"
+                        name="data.otherStats.{{key}}"
+                        value="{{stat}}"
+                        data-dtype="Number"
+                    />
+                </div>
+            {{/each}}
+        </div>
+    </body>
 </form>

@@ -1,5 +1,3 @@
-import { calcStat, healthCalc } from "./auxscripts/actorCalculations.js";
-
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -10,8 +8,8 @@ export class LoghorizonEnemySheet extends ActorSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["loghorizon", "sheet", "actor"],
             template: "systems/loghorizon/templates/actor/enemy-sheet.hbs",
-            width: 750,
-            height: 500,
+            width: 400,
+            height: 350,
             tabs: [
                 {
                     navSelector: ".sheet-tabs",
