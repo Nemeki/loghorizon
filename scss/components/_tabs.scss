@@ -2,7 +2,7 @@
     height: 40px;
     border-top: 1px solid $accent-color;
     border-bottom: 1px solid $accent-color;
-    margin: 20px;
+    margin: 10px;
 
     .item {
         line-height: 40px;
@@ -12,9 +12,5 @@
     .item.active {
         text-decoration: underline;
         text-shadow: none;
-    }
-
-    .item.focus {
-        text-shadow: 0 0 10px $accent-color;
     }
 }

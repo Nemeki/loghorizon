@@ -11,7 +11,7 @@ export class LoghorizonCharacterSheet extends ActorSheet {
             classes: ["loghorizon", "sheet", "actor"],
             template: "systems/loghorizon/templates/actor/character-sheet.hbs",
             width: 770,
-            height: 410,
+            height: 500,
             tabs: [
                 {
                     navSelector: ".sheet-tabs",
