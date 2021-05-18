@@ -3,6 +3,15 @@
     background-color: $main-color;
 }
 
+.window-content {
+    border: none;
+}
+
+.window-title {
+    font-weight: bold;
+    color: $accent-color;
+}
+
 .rollable {
     &:hover,
     &:focus {

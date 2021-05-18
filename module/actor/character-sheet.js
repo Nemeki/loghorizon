@@ -10,13 +10,13 @@ export class LoghorizonCharacterSheet extends ActorSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["loghorizon", "sheet", "actor"],
             template: "systems/loghorizon/templates/actor/character-sheet.hbs",
-            width: 760,
+            width: 770,
             height: 410,
             tabs: [
                 {
                     navSelector: ".sheet-tabs",
                     contentSelector: ".sheet-body",
-                    initial: "description",
+                    initial: "basestats",
                 },
             ],
         });
