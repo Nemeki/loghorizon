@@ -1,26 +1,7 @@
-// .tabs {
-//   .item {
-//     background: rgba(0, 0, 0, 0.125);
-//     border: 1px solid;
-//     border-radius: 4px;
-//     margin: 0 10px 0;
-//     padding: 8px 4px;
-
-//     &:hover,
-//     &:focus {
-//       background: rgba(0, 0, 0, 0.125);
-//     }
-
-//     &.active {
-//       background: transparent;
-//     }
-//   }
-// }
-
 .tabs {
     height: 40px;
-    border-top: 1px solid #aaa;
-    border-bottom: 1px solid #aaa;
+    border-top: 1px solid $accent-color;
+    border-bottom: 1px solid $accent-color;
     margin: 20px;
 
     .item {
@@ -31,5 +12,9 @@
     .item.active {
         text-decoration: underline;
         text-shadow: none;
+    }
+
+    .item.focus {
+        text-shadow: 0 0 10px $accent-color;
     }
 }
