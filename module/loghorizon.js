@@ -5,6 +5,7 @@ import { LoghorizonEnemySheet } from "./actor/enemy-sheet.js";
 import { LoghorizonItem } from "./item/item.js";
 import { LoghorizonItemSheet } from "./item/item-sheet.js";
 import { loghorizonD } from "./config.js";
+import * as Chat from "./chat.js";
 
 async function preloadHandlebarsTemplates() {
     const templatePaths = [
@@ -12,8 +13,12 @@ async function preloadHandlebarsTemplates() {
         "systems/loghorizon/templates/actor/partials/baseStats.hbs",
         "systems/loghorizon/templates/actor/partials/battleStats.hbs",
         "systems/loghorizon/templates/actor/partials/itemsTab.hbs",
-        "systems/loghorizon/templates/actor/partials/problem.hbs",
-        "systems/loghorizon/templates/actor/partials/skills.hbs", //DELETE
+        "systems/loghorizon/templates/actor/partials/skills.hbs",
+        "systems/loghorizon/templates/item/cards/item-card.hbs",
+        "systems/loghorizon/templates/item/cards/skill-card.hbs",
+        "systems/loghorizon/templates/item/cards/class-card.hbs",
+        "systems/loghorizon/templates/item/checks/use-skill-check.hbs",
+        "templates/dice/roll.html",
     ];
 
     return loadTemplates(templatePaths);
@@ -146,3 +151,5 @@ function rollItemMacro(itemName) {
     // Trigger the item roll
     return item.roll();
 }
+
+Hooks.on("renderChatLog", (app, html, data) => Chat.addChatListeners(html));

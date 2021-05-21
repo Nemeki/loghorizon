@@ -6,6 +6,13 @@ export class LoghorizonItem extends Item {
     /**
      * Augment the basic Item data model with additional dynamic data.
      */
+
+    chatTemplate = {
+        item: "systems/loghorizon/templates/item/cards/item-card.hbs",
+        skill: "systems/loghorizon/templates/item/cards/skill-card.hbs",
+        class: "systems/loghorizon/templates/item/cards/class-card.hbs",
+    };
+
     prepareData() {
         super.prepareData();
 
@@ -22,7 +29,7 @@ export class LoghorizonItem extends Item {
      */
     async roll() {
         // Basic template rendering data
-        const token = this.actor.token;
+        /* const token = this.actor.token;
         const item = this.data;
         const actorData = this.actor ? this.actor.data.data : {};
         const itemData = item.data;
@@ -32,30 +39,25 @@ export class LoghorizonItem extends Item {
         roll.roll().toMessage({
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             flavor: label,
-        });
-    }
+        }); */
 
-    /* get amods() {
-        const item = this.data;
-        const itemData = item.data;
-
-        let result = {
-            str: itemData.statIncreases.str.value,
-            dex: itemData.statIncreases.dex.value,
-            pow: itemData.statIncreases.pow.value,
-            int: itemData.statIncreases.int.value,
+        let chatData = {
+            user: game.user._id,
+            speaker: ChatMessage.getSpeaker(),
         };
-        return result;
-    }*/
 
-    /* calcHp(level) {
-        const item = this.data;
-        const itemData = item.data;
+        let cardData = {
+            ...this.data,
+            owner: this.actor.id,
+        };
 
-        let base = itemData.hp.base;
-        let mod = itemData.hp.modifier;
-        let lvl = level - 1;
+        chatData.content = await renderTemplate(
+            this.chatTemplate[this.type],
+            cardData
+        );
 
-        return base + mod * lvl;
-    } */
+        chatData.roll = true;
+
+        return ChatMessage.create(chatData);
+    }
 }

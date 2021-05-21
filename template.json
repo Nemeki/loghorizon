@@ -178,7 +178,9 @@
             "target": "",
             "range": "close",
             "cost": "",
-            "limit": ""
+            "limit": "",
+            "fate": false,
+            "ability": 1
         },
         "class": {
             "templates": ["base"],

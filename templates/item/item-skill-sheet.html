@@ -1,4 +1,4 @@
-<form class="{{cssClass}} item-form" autocomplete="off">
+<form class="{{cssClass}} item-form skill" autocomplete="off">
     <header class="sheet-header">
         <img
             src="{{item.img}}"
@@ -16,6 +16,13 @@
                     placeholder="Name"
                 />
             </h1>
+
+            <div class="resource flexcol">
+                <label for="data.fate" class="resource-label2"
+                    >Uses fate:</label
+                >
+                <input name="data.fate" type="checkbox" {{checked data.fate}} />
+            </div>
         </div>
     </header>
 
@@ -44,13 +51,22 @@
         </div>
         <div class="grid-2col">
             <div class="resource flexrow flex-group-left">
-                <label for="data.maxSR" class="resource-label2">Max SR</label>
-                <input
-                    type="text"
-                    name="data.maxSR"
-                    value="{{data.maxSR}}"
-                    data-dtype="Number"
-                />
+                <label for="data.maxSR" class="resource-label2">SR</label>
+                <div class="resource-content flexrow flex-center flex-between">
+                    <input
+                        type="text"
+                        name="data.rank"
+                        value="{{data.rank}}"
+                        data-dtype="Number"
+                    />
+                    <span> / </span>
+                    <input
+                        type="text"
+                        name="data.maxSR"
+                        value="{{data.maxSR}}"
+                        data-dtype="Number"
+                    />
+                </div>
             </div>
             <div class="resource flexrow flex-group-left">
                 <label for="data.timing" class="resource-label2">Timing</label>
@@ -112,6 +128,17 @@
                 />
             </div>
         </div>
+
+        <div class="resource flexrow flex-group-left">
+            <label for="data.ability" class="resource-label2">Skill</label>
+            <input
+                type="text"
+                name="data.ability"
+                value="{{data.ability}}"
+                data-dtype="Number"
+            />
+        </div>
+
         <br />
         <label for="data.description" class="resource-label2">
             Description

@@ -4,6 +4,13 @@
     color: white;
 }
 
+.item-card {
+    font-family: $font-primary;
+    background-color: $main-color;
+    color: white;
+    border: 1px solid $accent-color;
+}
+
 .character-sheet {
     font-family: $font-primary;
     background-color: $main-color;

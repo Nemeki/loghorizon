@@ -72,13 +72,58 @@ export class LoghorizonActor extends Actor {
 
         // ~~~~~~ Calculo del battle status ~~~~~~ //
         data.fate.max = data.fate.rMod;
-        data.battleStatus.phyDefense.value = data.attributes.str.mod * 2;
-        data.battleStatus.magicDefense.value = data.attributes.int.mod * 2;
+        data.battleStatus.phyDef.value = data.attributes.str.mod * 2;
+        data.battleStatus.magicDef.value = data.attributes.int.mod * 2;
         data.battleStatus.initiative.value =
             data.attributes.str.mod + data.attributes.int.mod;
     }
 
     _prepareEnemyData(actorData) {
         const data = actorData.data;
+    }
+
+    getAbility(valor) {
+        let data = this.data.data.abilities;
+        let result = 0;
+
+        switch (valor) {
+            case 1:
+                result = data.athletics.value;
+                break;
+            case 2:
+                result = data.disable.value;
+                break;
+            case 3:
+                result = data.perception.value;
+                break;
+            case 4:
+                result = data.knowledge.value;
+                break;
+            case 5:
+                result = data.endurance.value;
+                break;
+            case 6:
+                result = data.operate.value;
+                break;
+            case 7:
+                result = data.negotiation.value;
+                break;
+            case 8:
+                result = data.analyze.value;
+                break;
+            case 9:
+                result = data.resistance.value;
+                break;
+            case 10:
+                result = data.evasion.value;
+                break;
+            case 11:
+                result = data.accuracy.value;
+                break;
+            default:
+                break;
+        }
+
+        return result;
     }
 }

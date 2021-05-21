@@ -1,0 +1,39 @@
+<div class="item-card skill" data-item-id="{{_id}}" data-owner-id="{{owner}}">
+    <div class="image2-grid">
+        <img src="{{img}}" height="40" width="40" />
+        <div class="header-fields">
+            <h1 class="charname">
+                {{name}}
+            </h1>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="resource flexrow">
+        <label for="data.check" class="resource-label2">Check: </label>
+        <span>{{data.check}}</span>
+    </div>
+
+    <div class="resource flexrow">
+        <label for="data.rank" class="resource-label2">Rank: </label>
+        <span>{{data.rank}}</span>
+    </div>
+
+    <br />
+
+    <label for="data.description" class="resource-label2">
+        Description:
+    </label>
+    <p>{{data.description}}</p>
+
+    <br />
+
+    <div class="card-buttons flexrow">
+        <button class="use"> Use </button>
+        {{#if data.fate}}
+            <button class="fate"> Use with fate </button>
+        {{/if}}
+    </div>
+
+</div>

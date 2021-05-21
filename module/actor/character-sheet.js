@@ -1,4 +1,5 @@
 import { calcStat, healthCalc } from "./auxscripts/actorCalculations.js";
+import * as Dice from "../dice.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -128,6 +129,7 @@ export class LoghorizonCharacterSheet extends ActorSheet {
                 li.setAttribute("draggable", true);
                 li.addEventListener("dragstart", handler, false);
             });
+            html.find(".item-roll").click(this._onItemRoll.bind(this));
         }
     }
 
@@ -176,5 +178,12 @@ export class LoghorizonCharacterSheet extends ActorSheet {
                 flavor: label,
             });
         }
+    }
+
+    _onItemRoll(event) {
+        const itemID = event.currentTarget.closest(".item").dataset.itemId;
+        const item = this.actor.getOwnedItem(itemID);
+
+        item.roll();
     }
 }
