@@ -11,6 +11,9 @@ async function preloadHandlebarsTemplates() {
     const templatePaths = [
         "systems/loghorizon/templates/actor/partials/statuscreen.hbs",
         "systems/loghorizon/templates/actor/partials/baseStats.hbs",
+        "systems/loghorizon/templates/actor/partials/noEditStats.hbs",
+        "systems/loghorizon/templates/actor/partials/editStats.hbs",
+        "systems/loghorizon/templates/actor/partials/editBattle.hbs",
         "systems/loghorizon/templates/actor/partials/battleStats.hbs",
         "systems/loghorizon/templates/actor/partials/itemsTab.hbs",
         "systems/loghorizon/templates/actor/partials/skills.hbs",
@@ -38,7 +41,7 @@ Hooks.once("init", function () {
      * @type {String}
      */
     CONFIG.Combat.initiative = {
-        formula: "1d20 + @abilities.dex.mod",
+        formula: "2d6 + @battleStatus.initiative.value",
         decimals: 0, //FIXME:
     };
 

@@ -6,12 +6,14 @@
                 "health": {
                     "value": 0,
                     "min": 0,
-                    "max": 0
+                    "max": 0,
+                    "extra": 0
                 }
             }
         },
         "character": {
             "templates": ["base"],
+            "editMode": false,
             "level": {
                 "value": 1
             },
@@ -29,19 +31,19 @@
             "attributes": {
                 "str": {
                     "value": 0,
-                    "sValue": 0
+                    "extra": 0
                 },
                 "dex": {
                     "value": 0,
-                    "sValue": 0
+                    "extra": 0
                 },
                 "pow": {
                     "value": 0,
-                    "sValue": 0
+                    "extra": 0
                 },
                 "int": {
                     "value": 0,
-                    "sValue": 0
+                    "extra": 0
                 }
             },
             "abilities": {

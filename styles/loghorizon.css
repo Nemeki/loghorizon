@@ -202,6 +202,13 @@
   color: white;
 }
 
+.loghorizon .item-card {
+  font-family: "RockfordSans", sans-serif;
+  background-color: #1f1924;
+  color: white;
+  border: 1px solid #ae22ff;
+}
+
 .loghorizon .character-sheet {
   font-family: "RockfordSans", sans-serif;
   background-color: #1f1924;
@@ -310,6 +317,10 @@
 
 .loghorizon select {
   color: white;
+}
+
+.loghorizon .read-input {
+  border: none;
 }
 
 .loghorizon .resource-label {

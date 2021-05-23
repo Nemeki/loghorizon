@@ -16,6 +16,9 @@
                 </div>
             </div>
         {{/each}}
+        {{#if data.editMode}}
+        {{> "systems/loghorizon/templates/actor/partials/editBattle.hbs"}}
+        {{/if}}
     </div>
 
     <div>

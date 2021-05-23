@@ -75,15 +75,17 @@ export class LoghorizonCharacterSheet extends ActorSheet {
                 let modifier = calcStat(i, cData.race);
 
                 cData.attributes.str.value =
-                    cData.attributes.str.sValue + modifier[0];
+                    cData.attributes.str.extra + modifier[0];
                 cData.attributes.dex.value =
-                    cData.attributes.dex.sValue + modifier[1];
+                    cData.attributes.dex.extra + modifier[1];
                 cData.attributes.pow.value =
-                    cData.attributes.pow.sValue + modifier[2];
+                    cData.attributes.pow.extra + modifier[2];
                 cData.attributes.int.value =
-                    cData.attributes.int.sValue + modifier[3];
+                    cData.attributes.int.extra + modifier[3];
 
-                cData.health.max = healthCalc(i, cData.race, cData.level.value);
+                cData.health.max =
+                    healthCalc(i, cData.race, cData.level.value) +
+                    cData.health.extra;
             }
         }
 
