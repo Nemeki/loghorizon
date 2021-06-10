@@ -5,7 +5,7 @@ import * as Dice from "../dice.js";
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class LoghorizonCharacterSheet extends ActorSheet {
+export default class LoghorizonCharacterSheet extends ActorSheet {
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
@@ -30,9 +30,9 @@ export class LoghorizonCharacterSheet extends ActorSheet {
         const data = super.getData();
         data.dtypes = ["String", "Number", "Boolean"];
         data.config = CONFIG.loghorizonD;
-        for (let attr of Object.values(data.data.attributes)) {
+        /* for (let attr of Object.values(data.data.attributes)) {
             attr.isCheckbox = attr.dtype === "Boolean";
-        }
+        } */
 
         // Prepare items.
         if (this.actor.data.type == "character") {
@@ -124,7 +124,7 @@ export class LoghorizonCharacterSheet extends ActorSheet {
         html.find(".rollable").click(this._onRoll.bind(this));
 
         // ~~~~~~~ Drag events for macros. ~~~~~~~ //
-        if (this.actor.owner) {
+        if (this.actor.isOwner) {
             let handler = (ev) => this._onDragStart(ev);
             html.find("li.item").each((i, li) => {
                 if (li.classList.contains("inventory-header")) return;

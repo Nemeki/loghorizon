@@ -4,7 +4,7 @@ import { calcStat, healthCalc } from "./auxscripts/actorCalculations.js";
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
  */
-export class LoghorizonActor extends Actor {
+export default class LoghorizonActor extends Actor {
     /**
      * Augment the basic actor data with additional dynamic data.
      */
@@ -125,38 +125,5 @@ export class LoghorizonActor extends Actor {
         }
 
         return result;
-    }
-
-    recalculate() {
-        let data = this.data.data;
-        var high = 0;
-
-        for (let [key, attribute] of Object.entries(data.attributes)) {
-            attribute.mod = Math.floor(attribute.value / 3);
-            if (attribute.mod > high) {
-                high = attribute.mod;
-            }
-        }
-
-        // ~~~~~~ Calculo de las habilidades ~~~~~ //
-        data.abilities.athletics.value = data.attributes.str.mod;
-        data.abilities.endurance.value = data.attributes.str.mod;
-        data.abilities.disable.value = data.attributes.dex.mod;
-        data.abilities.operate.value = data.attributes.dex.mod;
-        data.abilities.evasion.value = data.attributes.dex.mod;
-        data.abilities.perception.value = data.attributes.pow.mod;
-        data.abilities.negotiation.value = data.attributes.pow.mod;
-        data.abilities.resistance.value = data.attributes.pow.mod;
-        data.abilities.knowledge.value = data.attributes.int.mod;
-        data.abilities.analyze.value = data.attributes.int.mod;
-
-        data.abilities.accuracy.value = high;
-
-        // ~~~~~~ Calculo del battle status ~~~~~~ //
-        data.fate.max += data.fate.rMod;
-        data.battleStatus.phyDef.value += data.attributes.str.mod * 2;
-        data.battleStatus.magicDef.value += data.attributes.int.mod * 2;
-        data.battleStatus.initiative.value +=
-            data.attributes.str.mod + data.attributes.int.mod;
     }
 }

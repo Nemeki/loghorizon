@@ -1,8 +1,8 @@
 // Import Modules
-import { LoghorizonActor } from "./actor/actor.js";
+import LoghorizonActor from "./actor/actor.js";
 import { LoghorizonCharacterSheet } from "./actor/character-sheet.js";
 import { LoghorizonEnemySheet } from "./actor/enemy-sheet.js";
-import { LoghorizonItem } from "./item/item.js";
+import LoghorizonItem from "./item/item.js";
 import { LoghorizonItemSheet } from "./item/item-sheet.js";
 import { loghorizonD } from "./config.js";
 import * as Chat from "./chat.js";
@@ -29,9 +29,11 @@ async function preloadHandlebarsTemplates() {
 
 Hooks.once("init", function () {
     game.loghorizon = {
-        LoghorizonActor,
-        LoghorizonItem,
-        rollItemMacro,
+        entities: {
+            LoghorizonActor,
+            LoghorizonItem,
+        },
+        rollItemMacro: rollItemMacro,
     };
 
     CONFIG.loghorizonD = loghorizonD;
@@ -45,9 +47,9 @@ Hooks.once("init", function () {
         decimals: 0, //FIXME:
     };
 
-    // Define custom Entity classes
-    CONFIG.Actor.entityClass = LoghorizonActor;
-    CONFIG.Item.entityClass = LoghorizonItem;
+    // Record Configuration Values
+    CONFIG.Actor.documentClass = LoghorizonActor;
+    CONFIG.Item.documentClass = LoghorizonItem;
 
     // Register sheet application classes
     Actors.unregisterSheet("core", ActorSheet);
