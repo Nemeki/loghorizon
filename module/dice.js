@@ -7,8 +7,8 @@ export async function useCheck(skill, pj) {
     let rollData = {
         checkValue: checkValue,
     };
-    let roll = new Roll(rollFormula, rollData);
-    let rollResult = roll.roll();
+    let roll = await new Roll(rollFormula, rollData);
+    let rollResult = roll.roll({ async: true });
 
     let messageData = {
         speaker: ChatMessage.getSpeaker(),

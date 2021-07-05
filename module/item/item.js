@@ -2,7 +2,7 @@
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
  */
-export default class LoghorizonItem extends Item {
+export class LoghorizonItem extends Item {
     /**
      * Augment the basic Item data model with additional dynamic data.
      */
@@ -42,7 +42,7 @@ export default class LoghorizonItem extends Item {
         }); */
 
         let chatData = {
-            user: game.user._id,
+            user: game.user.id,
             speaker: ChatMessage.getSpeaker(),
         };
 

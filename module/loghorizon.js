@@ -1,8 +1,8 @@
 // Import Modules
-import LoghorizonActor from "./actor/actor.js";
+import { LoghorizonActor } from "./actor/actor.js";
 import { LoghorizonCharacterSheet } from "./actor/character-sheet.js";
 import { LoghorizonEnemySheet } from "./actor/enemy-sheet.js";
-import LoghorizonItem from "./item/item.js";
+import { LoghorizonItem } from "./item/item.js";
 import { LoghorizonItemSheet } from "./item/item-sheet.js";
 import { loghorizonD } from "./config.js";
 import * as Chat from "./chat.js";
@@ -29,10 +29,13 @@ async function preloadHandlebarsTemplates() {
 
 Hooks.once("init", function () {
     game.loghorizon = {
-        entities: {
-            LoghorizonActor,
-            LoghorizonItem,
+        applications: {
+            LoghorizonCharacterSheet,
+            LoghorizonEnemySheet,
+            LoghorizonItemSheet,
         },
+        LoghorizonActor,
+        LoghorizonItem,
         rollItemMacro: rollItemMacro,
     };
 
@@ -52,21 +55,35 @@ Hooks.once("init", function () {
     CONFIG.Item.documentClass = LoghorizonItem;
 
     // Register sheet application classes
-    Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("loghorizon", LoghorizonCharacterSheet, {
-        types: ["character"],
-        makeDefault: true,
-    });
-    Actors.registerSheet("loghorizon", LoghorizonEnemySheet, {
-        types: ["enemy"],
-        makeDefault: true,
-    });
-    Items.unregisterSheet("core", ItemSheet);
-    Items.registerSheet("loghorizon", LoghorizonItemSheet, {
-        makeDefault: true,
-    });
+    registerSheets();
+
+    // Register Handlebar Helpers
+
+    //registerHandlebars();
+
+    // Load System Settings
+    //LoadSystemSettings();
 
     preloadHandlebarsTemplates();
+
+    // Register sheet application classes
+    function registerSheets() {
+        // Register sheet application classes
+        Actors.unregisterSheet("core", ActorSheet);
+        Actors.registerSheet("loghorizon", LoghorizonCharacterSheet, {
+            types: ["character"],
+            makeDefault: true,
+        });
+        Actors.registerSheet("loghorizon", LoghorizonEnemySheet, {
+            types: ["enemy"],
+            makeDefault: true,
+        });
+        Items.unregisterSheet("core", ItemSheet);
+        Items.registerSheet("loghorizon", LoghorizonItemSheet, {
+            makeDefault: true,
+        });
+    }
+
     Handlebars.registerHelper("times", function (n, content) {
         let result = "";
         for (let i = 0; i < n; ++i) {
@@ -120,7 +137,7 @@ async function createLoghorizonMacro(data, slot) {
 
     // Create the macro command
     const command = `game.loghorizon.rollItemMacro("${item.name}");`;
-    let macro = game.macros.entities.find(
+    let macro = game.macros.contents.find(
         (m) => m.name === item.name && m.command === command
     );
     if (!macro) {

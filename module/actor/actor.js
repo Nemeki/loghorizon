@@ -4,7 +4,7 @@ import { calcStat, healthCalc } from "./auxscripts/actorCalculations.js";
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
  */
-export default class LoghorizonActor extends Actor {
+export class LoghorizonActor extends Actor {
     /**
      * Augment the basic actor data with additional dynamic data.
      */
@@ -12,8 +12,8 @@ export default class LoghorizonActor extends Actor {
         super.prepareData();
 
         const actorData = this.data;
-        const data = actorData.data;
-        const flags = actorData.flags;
+        //const data = actorData.data;
+        //const flags = actorData.flags;
 
         // Make separate methods for each Actor type (character, npc, etc.) to keep
         // things organized.
