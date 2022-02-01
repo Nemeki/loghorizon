@@ -33,6 +33,8 @@ export class LoghorizonEnemySheet extends ActorSheet {
             this._prepareEnemyItems(data);
         }
 
+        data.data = this.actor.data.data;
+
         return data;
     }
 
@@ -86,14 +88,16 @@ export class LoghorizonEnemySheet extends ActorSheet {
         // ~~~~~~~~ Update Inventory Item ~~~~~~~~ //
         html.find(".item-edit").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
+            const item = this.actor.items.get(li.data("itemId"));
+            //getOwnedItem(li.data("itemId"));
             item.sheet.render(true);
         });
 
         // ~~~~~~~~ Delete Inventory Item ~~~~~~~~ //
         html.find(".item-delete").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
-            this.actor.deleteOwnedItem(li.data("itemId"));
+            this.actor.deleteEmbeddedDocuments("Item", [itemId]);
+            //OwnedItem(li.data("itemId"));
             li.slideUp(200, () => this.render(false));
         });
 
@@ -101,7 +105,7 @@ export class LoghorizonEnemySheet extends ActorSheet {
         html.find(".rollable").click(this._onRoll.bind(this));
 
         // ~~~~~~~ Drag events for macros. ~~~~~~~ //
-        if (this.actor.owner) {
+        if (this.actor.isOwner) {
             let handler = (ev) => this._onDragStart(ev);
             html.find("li.item").each((i, li) => {
                 if (li.classList.contains("inventory-header")) return;
@@ -135,7 +139,8 @@ export class LoghorizonEnemySheet extends ActorSheet {
         delete itemData.data["type"];
 
         // Finally, create the item!
-        return this.actor.createOwnedItem(itemData);
+        return this.actor.createEmbeddedDocuments("Item", [itemData]);
+        //OwnedItem(itemData);
     }
 
     /**
@@ -149,9 +154,11 @@ export class LoghorizonEnemySheet extends ActorSheet {
         const dataset = element.dataset;
 
         if (dataset.roll) {
-            let roll = new Roll(dataset.roll, this.actor.data.data);
+            let rollResult = new Roll(dataset.roll, this.actor.data.data).roll({
+                async: true,
+            });
             let label = dataset.label ? `Rolling ${dataset.label}` : "";
-            roll.roll().toMessage({
+            rollResult.toMessage({
                 speaker: ChatMessage.getSpeaker({ actor: this.actor }),
                 flavor: label,
             });

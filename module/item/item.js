@@ -42,7 +42,7 @@ export class LoghorizonItem extends Item {
         }); */
 
         let chatData = {
-            user: game.user._id,
+            user: game.user.id,
             speaker: ChatMessage.getSpeaker(),
         };
 

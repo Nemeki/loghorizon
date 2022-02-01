@@ -7,6 +7,7 @@ export function addChatListeners(html) {
 function onUse(event) {
     const card = event.currentTarget.closest(".skill");
     let pj = game.actors.get(card.dataset.ownerId);
-    let skill = pj.getOwnedItem(card.dataset.itemId);
+    let skill = pj.items.get(card.dataset.itemId);
+    //getOwnedItem(card.dataset.itemId);
     Dice.useCheck(skill, pj);
 }
